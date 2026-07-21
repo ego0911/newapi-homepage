@@ -1,0 +1,64 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="face-left" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6a6a6a"/>
+      <stop offset="100%" style="stop-color:#4a4a4a"/>
+    </linearGradient>
+    <linearGradient id="face-right" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8a8a8a"/>
+      <stop offset="100%" style="stop-color:#5a5a5a"/>
+    </linearGradient>
+    <linearGradient id="face-top" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#909090"/>
+      <stop offset="100%" style="stop-color:#c8c8c8"/>
+    </linearGradient>
+    <linearGradient id="face-peak" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f0f0"/>
+      <stop offset="100%" style="stop-color:#a0a0a0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 3D W -->
+  <g transform="translate(100, 100)">
+    <!-- 左外侧面 -->
+    <polygon points="-78,-55 -54,-70 -30,38 -45,85 -78,85" fill="url(#face-left)"/>
+
+    <!-- 左上斜面 -->
+    <polygon points="-78,-55 -54,-70 -30,18 -53,5" fill="url(#face-top)"/>
+
+    <!-- 左内斜面 -->
+    <polygon points="-30,38 -8,-8 0,12 -20,60" fill="url(#face-peak)"/>
+
+    <!-- 中央左侧深度 -->
+    <polygon points="-20,60 0,38 0,70 -20,85" fill="#2a2a2a"/>
+
+    <!-- 中央右侧深度 -->
+    <polygon points="0,38 20,60 20,85 0,70" fill="#333333"/>
+
+    <!-- 右内斜面 -->
+    <polygon points="8,-8 30,38 20,60 0,12" fill="url(#face-top)"/>
+
+    <!-- 右上斜面 -->
+    <polygon points="54,-70 78,-55 53,5 30,18" fill="url(#face-top)"/>
+
+    <!-- 右外侧面 -->
+    <polygon points="54,-70 78,-55 78,85 45,85 30,38" fill="url(#face-right)"/>
+
+    <!-- W 主体正面 -->
+    <path d="M-54,-70 L-30,38 L-8,-8 L0,12 L8,-8 L30,38 L54,-70 L78,-55 L45,85 L20,85 L0,38 L-20,85 L-45,85 L-78,-55 Z"
+          fill="#666666"/>
+
+    <!-- 主体切面 -->
+    <polygon points="-54,-70 -30,38 -20,60 -45,85 -78,-55" fill="url(#face-left)"/>
+    <polygon points="-8,-8 0,12 0,38 -20,60 -30,38" fill="url(#face-peak)"/>
+    <polygon points="0,12 8,-8 30,38 20,60 0,38" fill="url(#face-top)"/>
+    <polygon points="30,38 54,-70 78,-55 45,85 20,85" fill="url(#face-right)"/>
+
+    <!-- 内部深度 -->
+    <polygon points="-20,60 0,38 20,60 0,82" fill="#303030"/>
+
+    <!-- 顶部高光线 -->
+    <path d="M-78,-55 L-54,-70 L-30,38 L-8,-8 L0,12 L8,-8 L30,38 L54,-70 L78,-55"
+          fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linejoin="round"/>
+  </g>
+</svg>
