@@ -6,6 +6,13 @@
     <meta name="theme-color" content="#fbf8f4">
     <meta name="description" content="New API 二次元主题首页，适用于 GitHub Pages 静态托管。">
     <title>New API · 灵感控制台</title>
+    <script>
+        try {
+            document.documentElement.classList.toggle("is-embedded", window.self !== window.top);
+        } catch {
+            document.documentElement.classList.add("is-embedded");
+        }
+    </script>
     <style>
         :root {
             --ink: #211923;
@@ -134,6 +141,10 @@
 
         .site-header.is-scrolled {
             box-shadow: 0 12px 34px rgba(62, 42, 52, 0.16);
+        }
+
+        html.is-embedded .site-header {
+            display: none;
         }
 
         .header-inner {
@@ -277,6 +288,15 @@
             overflow-x: clip;
             min-height: 760px;
             padding: 180px 0 110px;
+        }
+
+        html.is-embedded .hero {
+            min-height: 680px;
+            padding-top: 82px;
+        }
+
+        html.is-embedded .quick-stats {
+            margin-top: 0;
         }
 
         .hero-grid {
@@ -1255,6 +1275,11 @@
             .hero {
                 min-height: auto;
                 padding: 132px 0 75px;
+            }
+
+            html.is-embedded .hero {
+                min-height: auto;
+                padding-top: 52px;
             }
 
             .hero-title {
