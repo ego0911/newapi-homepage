@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#fbf8f4">
-    <meta name="description" content="New API 二次元主题首页，适用于 GitHub Pages 静态托管。">
-    <title>New API · 灵感控制台</title>
+    <meta name="description" content="通用 AI API 中转站二次元主题首页，适用于 GitHub Pages 静态托管。">
+    <title>API Gateway · 灵感控制台</title>
     <script>
         try {
             document.documentElement.classList.toggle("is-embedded", window.self !== window.top);
@@ -1400,7 +1400,7 @@
 <body>
     <header class="site-header" id="site-header">
         <div class="header-inner">
-            <a class="brand" href="#top" aria-label="New API 首页">
+            <a class="brand" href="#top" aria-label="API 中转站首页" id="brand-link">
                 <span class="brand-mark">
                     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <path d="M5 16.5 12 4l7 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1409,7 +1409,7 @@
                     </svg>
                 </span>
                 <span>
-                    New API
+                    <span data-site-name>API Gateway</span>
                     <small class="brand-caption">inspiration gateway</small>
                 </span>
             </a>
@@ -1446,10 +1446,10 @@
         <section class="hero">
             <div class="container hero-grid">
                 <div class="hero-copy reveal">
-                    <span class="eyebrow">New API / custom home</span>
+                    <span class="eyebrow"><span data-site-name>API Gateway</span> / custom home</span>
                     <h1 class="hero-title">让每一次调用，<em>都有自己的灵感。</em></h1>
                     <p class="hero-subtitle">一个有温度的 AI API 网关，把模型、额度与团队协作整理成清晰的入口。</p>
-                    <p class="hero-description">沿用 New API 的统一接口、渠道路由和用量管理能力。这个页面是纯静态首页，可直接托管到 GitHub Pages，再填入 New API 后台的首页内容。</p>
+                    <p class="hero-description">通过统一接口、渠道路由和用量管理能力，把模型服务整理成清晰的入口。这个页面是纯静态首页，可直接托管到 GitHub Pages，再填入 API 中转站后台的首页内容。</p>
                     <div class="hero-actions">
                         <a class="btn btn-primary js-console-link" href="#console" data-path="/register" target="_top">
                             开始使用
@@ -1465,7 +1465,7 @@
                             </svg>
                         </a>
                     </div>
-                    <p class="hero-note"><span class="pulse-dot"></span>纯静态页面 · 适合 GitHub Pages · 支持 New API iframe</p>
+                    <p class="hero-note"><span class="pulse-dot"></span>纯静态页面 · 适合 GitHub Pages · 支持 iframe 首页</p>
                 </div>
 
                 <div class="hero-art-wrap reveal">
@@ -1541,9 +1541,9 @@
                     <div class="section-header-copy">
                         <span class="section-kicker">core abilities</span>
                         <h2 class="section-title">把复杂的模型世界，整理成一张清晰的桌面。</h2>
-                        <p class="section-description">New API 官方项目提供统一接口、智能路由、用量统计与权限管理等能力。首页只负责迎接用户，真正的工作交给后面的控制台。</p>
+                        <p class="section-description">API 中转站提供统一接口、智能路由、用量统计与权限管理等能力。首页只负责迎接用户，真正的工作交给后面的控制台。</p>
                     </div>
-                    <p class="section-aside">适用于自用、团队内部和企业私有化部署场景。具体可用模型和权限，以你的 New API 实例配置为准。</p>
+                    <p class="section-aside">适用于自用、团队内部和企业私有化部署场景。具体可用模型和权限，以当前实例配置为准。</p>
                 </div>
 
                 <div class="feature-grid">
@@ -1629,7 +1629,7 @@
                     <div class="terminal-body">
                         <span class="terminal-line"><span class="terminal-muted">$</span> curl <span class="terminal-key">/v1/chat/completions</span></span>
                         <span class="terminal-line">{</span>
-                        <span class="terminal-line">&nbsp;&nbsp;<span class="terminal-key">"model"</span>: <span class="terminal-string">"your-model"</span>,</span>
+                        <span class="terminal-line">&nbsp;&nbsp;<span class="terminal-key">"model"</span>: <span class="terminal-string">"gpt-4o-mini"</span>,</span>
                         <span class="terminal-line">&nbsp;&nbsp;<span class="terminal-key">"messages"</span>: [</span>
                         <span class="terminal-line">&nbsp;&nbsp;&nbsp;&nbsp;{</span>
                         <span class="terminal-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="terminal-key">"role"</span>: <span class="terminal-string">"user"</span>,</span>
@@ -1673,7 +1673,7 @@
                         <span class="model-tag">Realtime</span>
                     </div>
                     <div class="endpoint-box" id="console">
-                        <code class="endpoint-text" id="endpoint-code">https://your-newapi.example/v1</code>
+                        <code class="endpoint-text" id="endpoint-code">https://your-api.example/v1</code>
                         <button class="copy-btn" type="button" id="copy-endpoint" aria-label="复制 API 地址">
                             复制地址
                             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -1698,20 +1698,20 @@
 
                 <div class="faq-list">
                     <details class="reveal">
-                        <summary>这个页面怎么接入 New API？</summary>
-                        <p>把本页面部署到 GitHub Pages 后，复制它的 HTTPS 地址，在 New API 后台的首页内容设置中填入这个地址。New API 会将这个 URL 作为全屏 iframe 首页加载。</p>
+                        <summary>这个页面怎么接入 API 中转站？</summary>
+                        <p>把本页面部署到 GitHub Pages 后，复制它的 HTTPS 地址，在 API 中转站后台的首页内容设置中填入这个地址。支持 iframe 首页的实例会将这个 URL 全屏加载。</p>
                     </details>
                     <details class="reveal">
                         <summary>“开始使用”会跳到哪里？</summary>
-                        <p>页面会读取 iframe 外层的 New API 来源地址，并把按钮自动指向外层实例的注册页。直接打开 GitHub Pages 预览时没有外层实例，按钮会停留在当前说明区域。</p>
+                        <p>页面会读取 iframe 外层实例的来源地址，并把按钮自动指向外层实例的注册页。直接打开 GitHub Pages 预览时没有外层实例，按钮会停留在当前说明区域。</p>
                     </details>
                     <details class="reveal">
-                        <summary>页面支持 New API 的深色模式吗？</summary>
-                        <p>支持。New API 会通过 postMessage 发送 themeMode，页面收到 light、dark 或 system 后会同步颜色主题。</p>
+                        <summary>页面支持中转站的深色模式吗？</summary>
+                        <p>支持。外层页面可以通过 postMessage 发送 themeMode，页面收到 light、dark 或 system 后会同步颜色主题。</p>
                     </details>
                     <details class="reveal">
                         <summary>可以修改成自己的品牌名吗？</summary>
-                        <p>可以，直接修改 HTML 中的标题、品牌文字和页脚文字即可。页面没有构建工具，改完提交到 GitHub Pages 就能生效。</p>
+                        <p>可以。页面会优先读取 URL 中的 <code>siteName</code> 参数，或父页面通过 postMessage 传入的站点名称；没有名称时会根据外层域名生成通用名称。由于 GitHub Pages 与外层站点通常跨域，页面不能直接读取外层导航左上角的 DOM 文本。</p>
                     </details>
                 </div>
             </div>
@@ -1721,7 +1721,7 @@
             <div class="container cta-inner reveal">
                 <div>
                     <h2>现在，就从一页开始。</h2>
-                    <p>把这个页面放进你的 New API 首页，给团队一个更有记忆点的入口。</p>
+                    <p>把这个页面放进你的 API 中转站首页，给团队一个更有记忆点的入口。</p>
                 </div>
                 <a class="btn btn-primary js-console-link" href="#console" data-path="/register" target="_top">
                     前往注册
@@ -1744,7 +1744,7 @@
                                 <path d="M8.5 13h7M10.3 9.7h3.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
                             </svg>
                         </span>
-                        <span>New API · 灵感控制台</span>
+                        <span><span data-site-name>API Gateway</span> · 灵感控制台</span>
                     </div>
                     <p class="footer-copy">请仅在合法授权的上游服务、团队内部或合规的私有化场景中使用。此页面为静态首页，不代表具体实例的服务承诺。</p>
                 </div>
@@ -1756,7 +1756,7 @@
             </div>
             <div class="footer-bottom">
                 <span>STATIC HOMEPAGE / GITHUB PAGES READY</span>
-                <span>© <span id="current-year">2026</span> New API community page</span>
+                <span>© <span id="current-year">2026</span> API community page</span>
             </div>
         </div>
     </footer>
@@ -1771,14 +1771,76 @@
             const linkStatus = document.getElementById("link-status");
             const endpointCode = document.getElementById("endpoint-code");
             const copyEndpoint = document.getElementById("copy-endpoint");
+            const brandLink = document.getElementById("brand-link");
+            const siteNameNodes = Array.from(document.querySelectorAll("[data-site-name]"));
             const navLinks = Array.from(document.querySelectorAll("[data-nav-link]"));
             const sections = Array.from(document.querySelectorAll("main section[id]"));
             const consoleLinks = Array.from(document.querySelectorAll(".js-console-link"));
             const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            const DEFAULT_SITE_NAME = "API Gateway";
             let linkStatusTimer;
 
-            function getNewApiOrigin() {
-                const queryOrigin = new URLSearchParams(window.location.search).get("newapi");
+            function sanitizeSiteName(value) {
+                const name = String(value || "").replace(/\s+/g, " ").trim();
+                return name ? name.slice(0, 28) : null;
+            }
+
+            function inferSiteName() {
+                const params = new URLSearchParams(window.location.search);
+                const queryName = params.get("siteName") || params.get("name");
+                const explicitName = sanitizeSiteName(queryName);
+                if (explicitName) {
+                    return explicitName;
+                }
+
+                if (!document.referrer) {
+                    return DEFAULT_SITE_NAME;
+                }
+
+                try {
+                    const hostname = new URL(document.referrer).hostname.toLowerCase();
+                    if (
+                        hostname === "localhost" ||
+                        /^[\d.]+$/.test(hostname) ||
+                        hostname === "::1"
+                    ) {
+                        return DEFAULT_SITE_NAME;
+                    }
+
+                    const labels = hostname.split(".").filter(Boolean);
+                    const secondLevel = labels[labels.length - 2] || labels[0];
+                    const suffixes = new Set(["co", "com", "net", "org", "gov", "edu"]);
+                    const rawName = suffixes.has(secondLevel)
+                        ? labels[labels.length - 3]
+                        : secondLevel;
+                    const formattedName = rawName
+                        ? rawName
+                            .replace(/[-_]+/g, " ")
+                            .replace(/\b\w/g, (letter) => letter.toUpperCase())
+                        : "";
+
+                    return sanitizeSiteName(formattedName) || DEFAULT_SITE_NAME;
+                } catch {
+                    return DEFAULT_SITE_NAME;
+                }
+            }
+
+            function applySiteName(value) {
+                const siteName = sanitizeSiteName(value) || DEFAULT_SITE_NAME;
+                siteNameNodes.forEach((node) => {
+                    node.textContent = siteName;
+                });
+                brandLink?.setAttribute("aria-label", `${siteName} 首页`);
+                document.title = `${siteName} · 灵感控制台`;
+                document.querySelector('meta[name="description"]')?.setAttribute(
+                    "content",
+                    `${siteName} 二次元主题首页，适用于 GitHub Pages 静态托管。`
+                );
+            }
+
+            function getInstanceOrigin() {
+                const params = new URLSearchParams(window.location.search);
+                const queryOrigin = params.get("instance") || params.get("newapi");
                 const candidate = queryOrigin || document.referrer;
 
                 if (!candidate) {
@@ -1806,7 +1868,7 @@
             }
 
             function syncNewApiLinks() {
-                const origin = getNewApiOrigin();
+                const origin = getInstanceOrigin();
 
                 consoleLinks.forEach((link) => {
                     const path = link.dataset.path || "/";
@@ -1821,7 +1883,7 @@
                     }
                 });
 
-                endpointCode.textContent = origin ? `${origin}/v1` : "https://your-newapi.example/v1";
+                endpointCode.textContent = origin ? `${origin}/v1` : "https://your-api.example/v1";
             }
 
             function setTheme(mode) {
@@ -1896,12 +1958,12 @@
 
             consoleLinks.forEach((link) => {
                 link.addEventListener("click", (event) => {
-                    if (getNewApiOrigin()) {
+                    if (getInstanceOrigin()) {
                         return;
                     }
 
                     event.preventDefault();
-                    showLinkStatus("请从 New API 首页 iframe 打开此页面，控制台入口会自动识别实例地址。");
+                    showLinkStatus("请从 API 中转站首页 iframe 打开此页面，控制台入口会自动识别实例地址。");
                     document.getElementById("console").scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
                 });
             });
@@ -1925,6 +1987,15 @@
 
             window.addEventListener("message", (event) => {
                 const message = event.data || {};
+                const incomingSiteName = message.siteName
+                    || message.siteTitle
+                    || message.appName
+                    || message.brandName
+                    || message.data?.siteName;
+                if (incomingSiteName) {
+                    applySiteName(incomingSiteName);
+                }
+
                 if (message.themeMode) {
                     setTheme(message.themeMode);
                 }
@@ -1935,6 +2006,7 @@
             });
 
             document.getElementById("current-year").textContent = String(new Date().getFullYear());
+            applySiteName(inferSiteName());
             syncNewApiLinks();
             observeSections();
             revealOnScroll();
