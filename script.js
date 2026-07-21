@@ -1,6 +1,4 @@
 /*
-    WANAPI 页面交互文件
-    ------------------------------------------------------------
     本文件负责 iframe 嵌入检测、实例地址识别、
     主题消息同步、滚动动画、移动端菜单和 API 地址复制。
     通过 defer 加载，确保 HTML 结构解析完成后再初始化 DOM 交互。
@@ -29,6 +27,7 @@ try {
             const navLinks = Array.from(document.querySelectorAll("[data-nav-link]"));
             const sections = Array.from(document.querySelectorAll("main section[id]"));
             const consoleLinks = Array.from(document.querySelectorAll(".js-console-link"));
+            const contentConfig = window.WANAPI_CONTENT || {};
             const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
             let linkStatusTimer;
 
@@ -36,6 +35,40 @@ try {
             animeBackground?.addEventListener("error", () => {
                 document.documentElement.classList.add("background-fallback");
             });
+
+            /*
+                从配置对象读取嵌套字段：
+                例如 data-content-key="hero.title" 会读取
+                window.WANAPI_CONTENT.hero.title。
+                找不到字段时返回 undefined，让 HTML 默认文字继续生效。
+            */
+            function getContentValue(path) {
+                return String(path)
+                    .split(".")
+                    .reduce((current, key) => current?.[key], contentConfig);
+            }
+
+            /*
+                批量应用文字配置：
+                - 普通元素默认替换 textContent；
+                - 配置了 data-content-attr 的元素替换指定属性；
+                - 因此按钮里的 SVG 图标不会被文字配置删除。
+            */
+            function applyContentConfig() {
+                document.querySelectorAll("[data-content-key]").forEach((element) => {
+                    const value = getContentValue(element.dataset.contentKey);
+                    if (value === undefined || value === null) {
+                        return;
+                    }
+
+                    const attribute = element.dataset.contentAttr;
+                    if (attribute) {
+                        element.setAttribute(attribute, String(value));
+                    } else {
+                        element.textContent = String(value);
+                    }
+                });
+            }
 
             /*
                 获取外层实例地址：
@@ -93,7 +126,7 @@ try {
                     }
                 });
 
-                endpointCode.textContent = origin ? `${origin}/v1` : "https://your-api.example/v1";
+                endpointCode.textContent = origin ? `${origin}/v1` : "嵌入实例后自动显示 /v1";
             }
 
             /*
@@ -240,6 +273,7 @@ try {
                 品牌名称固定在 index.html 中，不依赖外部页面消息。
             */
             document.getElementById("current-year").textContent = String(new Date().getFullYear());
+            applyContentConfig();
             syncNewApiLinks();
             observeSections();
             revealOnScroll();
