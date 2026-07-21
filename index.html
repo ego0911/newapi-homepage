@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#fbf8f4">
-    <meta name="description" content="通用 AI API 中转站二次元主题首页，适用于 GitHub Pages 静态托管。">
-    <title>API Gateway · 灵感控制台</title>
+    <meta name="description" content="WANAPI AI API 中转站首页。">
+    <title>WANAPI · 灵感控制台</title>
     <script>
         try {
             document.documentElement.classList.toggle("is-embedded", window.self !== window.top);
@@ -15,39 +15,47 @@
     </script>
     <style>
         :root {
-            --ink: #211923;
-            --ink-soft: #5d505d;
-            --paper: #fbf8f4;
+            --ink: #403742;
+            --ink-soft: #7c727c;
+            --paper: #fffdfb;
             --paper-strong: #ffffff;
-            --paper-muted: #f4eee8;
-            --line: #e6dcd4;
-            --coral: #e35f55;
-            --coral-dark: #b94746;
-            --coral-pale: #f9ddd6;
-            --jade: #2c877c;
-            --jade-pale: #d9eee8;
-            --gold: #c99437;
-            --gold-pale: #f7eac8;
-            --shadow: 0 22px 60px rgba(62, 42, 52, 0.12);
-            --shadow-small: 0 10px 28px rgba(62, 42, 52, 0.1);
+            --paper-muted: #fcf6f2;
+            --line: #f1e9e5;
+            --coral: #f1a19c;
+            --coral-dark: #d48686;
+            --coral-pale: #fdf0ed;
+            --jade: #8abdb5;
+            --jade-pale: #edf8f5;
+            --gold: #e6c98d;
+            --gold-pale: #fdf7e8;
+            --glass-soft: rgba(255, 255, 255, 0.34);
+            --glass: rgba(255, 255, 255, 0.46);
+            --glass-strong: rgba(255, 255, 255, 0.62);
+            --glass-line: rgba(255, 255, 255, 0.5);
+            --shadow: 0 22px 60px rgba(90, 70, 78, 0.08);
+            --shadow-small: 0 10px 28px rgba(90, 70, 78, 0.07);
             --radius: 18px;
             --radius-small: 12px;
         }
 
         html[data-theme="dark"] {
-            --ink: #fff7ef;
-            --ink-soft: #cdbfc0;
+            --ink: #f8eef0;
+            --ink-soft: #d8cbd0;
             --paper: #211923;
             --paper-strong: #2d222c;
             --paper-muted: #352832;
             --line: #4c3947;
-            --coral: #f28173;
-            --coral-dark: #ff9a88;
-            --coral-pale: #593239;
-            --jade: #61b3a0;
-            --jade-pale: #294c49;
-            --gold: #e6b85b;
-            --gold-pale: #55452a;
+            --coral: #f19a91;
+            --coral-dark: #e08a86;
+            --coral-pale: #63484b;
+            --jade: #7abeb1;
+            --jade-pale: #315650;
+            --gold: #edca82;
+            --gold-pale: #625435;
+            --glass-soft: rgba(45, 34, 44, 0.42);
+            --glass: rgba(45, 34, 44, 0.56);
+            --glass-strong: rgba(45, 34, 44, 0.7);
+            --glass-line: rgba(255, 255, 255, 0.14);
             --shadow: 0 22px 60px rgba(0, 0, 0, 0.24);
             --shadow-small: 0 10px 28px rgba(0, 0, 0, 0.2);
         }
@@ -78,8 +86,8 @@
             inset: 0;
             z-index: -2;
             background-image:
-                linear-gradient(rgba(227, 95, 85, 0.045) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(227, 95, 85, 0.045) 1px, transparent 1px);
+                linear-gradient(rgba(241, 161, 156, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(241, 161, 156, 0.03) 1px, transparent 1px);
             background-size: 42px 42px;
             content: "";
             pointer-events: none;
@@ -95,6 +103,58 @@
             background: var(--coral);
             content: "";
             pointer-events: none;
+        }
+
+        .background-scene {
+            position: fixed;
+            inset: -24px;
+            z-index: -4;
+            overflow: hidden;
+            background: var(--paper);
+            pointer-events: none;
+        }
+
+        .background-scene img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(3px) saturate(1.02) contrast(1);
+            opacity: 0.52;
+            transform: scale(1.03);
+        }
+
+        .background-scene::after {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(237, 130, 125, 0.06),
+                    rgba(231, 243, 240, 0.06) 48%,
+                    rgba(251, 241, 217, 0.08)
+                ),
+                rgba(253, 250, 247, 0.4);
+            content: "";
+        }
+
+        html[data-theme="dark"] .background-scene img {
+            filter: blur(3px) saturate(0.9) contrast(1.01) brightness(0.68);
+            opacity: 0.52;
+        }
+
+        html[data-theme="dark"] .background-scene::after {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(227, 95, 85, 0.08),
+                    rgba(44, 135, 124, 0.08) 48%,
+                    rgba(201, 148, 55, 0.08)
+                ),
+                rgba(33, 25, 35, 0.64);
+        }
+
+        html.background-fallback .background-scene {
+            display: none;
         }
 
         ::selection {
@@ -131,9 +191,11 @@
             z-index: 20;
             width: min(1180px, calc(100% - 40px));
             min-height: 68px;
-            border: 1px solid var(--line);
+            border: 1px solid var(--glass-line);
             border-radius: 16px;
-            background: color-mix(in srgb, var(--paper-strong) 92%, transparent);
+            background: var(--glass-strong);
+            backdrop-filter: blur(20px) saturate(120%);
+            -webkit-backdrop-filter: blur(20px) saturate(120%);
             box-shadow: var(--shadow-small);
             transform: translateX(-50%);
             transition: background-color 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
@@ -234,18 +296,20 @@
             align-items: center;
             gap: 7px;
             padding: 11px 14px;
-            border: 1px solid var(--ink);
+            border: 1px solid var(--glass-line);
             border-radius: 11px;
-            background: var(--ink);
-            color: var(--paper);
+            background: var(--glass-strong);
+            color: var(--ink);
             font-size: 12px;
             font-weight: 800;
+            backdrop-filter: blur(14px) saturate(115%);
+            -webkit-backdrop-filter: blur(14px) saturate(115%);
             transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
         }
 
         .header-action:hover {
-            background: var(--coral);
-            color: #ffffff;
+            background: var(--coral-pale);
+            color: var(--coral-dark);
             transform: translateY(-2px);
         }
 
@@ -260,7 +324,9 @@
             height: 40px;
             border: 1px solid var(--line);
             border-radius: 11px;
-            background: var(--paper-muted);
+            background: var(--glass-soft);
+            backdrop-filter: blur(14px) saturate(115%);
+            -webkit-backdrop-filter: blur(14px) saturate(115%);
         }
 
         .menu-toggle svg {
@@ -382,6 +448,8 @@
             border-radius: 12px;
             font-size: 13px;
             font-weight: 900;
+            backdrop-filter: blur(8px) saturate(115%);
+            -webkit-backdrop-filter: blur(8px) saturate(115%);
             transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
         }
 
@@ -391,20 +459,24 @@
         }
 
         .btn-primary {
-            background: var(--coral);
-            color: #ffffff;
-            box-shadow: 5px 5px 0 var(--ink);
+            background: var(--coral-pale);
+            color: var(--coral-dark);
+            border-color: var(--coral);
+            box-shadow: 5px 5px 0 rgba(64, 55, 66, 0.12);
         }
 
         .btn-primary:hover {
-            background: var(--coral-dark);
-            box-shadow: 3px 3px 0 var(--ink);
+            background: var(--coral);
+            color: var(--ink);
+            box-shadow: 3px 3px 0 rgba(64, 55, 66, 0.12);
             transform: translate(2px, 2px);
         }
 
         .btn-secondary {
-            background: var(--paper-strong);
+            background: var(--glass-strong);
             color: var(--ink);
+            backdrop-filter: blur(10px) saturate(120%);
+            -webkit-backdrop-filter: blur(10px) saturate(120%);
         }
 
         .btn-secondary:hover {
@@ -464,9 +536,11 @@
             z-index: 1;
             width: 100%;
             overflow: hidden;
-            border: 1px solid var(--ink);
+            border: 1px solid color-mix(in srgb, var(--ink) 72%, var(--glass-line));
             border-radius: 28px;
-            background: var(--paper-strong);
+            background: var(--glass);
+            backdrop-filter: blur(22px) saturate(118%);
+            -webkit-backdrop-filter: blur(22px) saturate(118%);
             box-shadow: 12px 12px 0 var(--ink), var(--shadow);
         }
 
@@ -477,7 +551,9 @@
             min-height: 50px;
             padding: 0 18px;
             border-bottom: 1px solid var(--line);
-            background: var(--paper-muted);
+            background: var(--glass-strong);
+            backdrop-filter: blur(16px) saturate(115%);
+            -webkit-backdrop-filter: blur(16px) saturate(115%);
         }
 
         .window-dots {
@@ -521,7 +597,9 @@
             gap: 12px;
             padding: 15px 18px 17px;
             border-top: 1px solid var(--line);
-            background: var(--paper-strong);
+            background: var(--glass-strong);
+            backdrop-filter: blur(16px) saturate(115%);
+            -webkit-backdrop-filter: blur(16px) saturate(115%);
         }
 
         .art-caption strong {
@@ -534,6 +612,105 @@
             font-size: 11px;
         }
 
+        .status-art-body {
+            min-height: 340px;
+            padding: 48px 42px 38px;
+            background:
+                linear-gradient(rgba(227, 95, 85, 0.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(227, 95, 85, 0.07) 1px, transparent 1px);
+            background-size: 34px 34px;
+            backdrop-filter: blur(8px) saturate(115%);
+            -webkit-backdrop-filter: blur(8px) saturate(115%);
+        }
+
+        .status-art-brand {
+            color: var(--coral-dark);
+            font-family: Consolas, "Courier New", monospace;
+            font-size: clamp(42px, 7vw, 76px);
+            font-weight: 900;
+            letter-spacing: -0.08em;
+            line-height: 0.95;
+        }
+
+        .status-art-subtitle {
+            margin-top: 12px;
+            color: var(--ink-soft);
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .status-art-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 48px;
+        }
+
+        .status-tile {
+            min-height: 86px;
+            padding: 14px;
+            border: 1px solid var(--glass-line);
+            border-radius: 12px;
+            background: var(--glass-soft);
+            backdrop-filter: blur(14px) saturate(115%);
+            -webkit-backdrop-filter: blur(14px) saturate(115%);
+        }
+
+        .status-tile span {
+            display: block;
+            color: var(--ink-soft);
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .status-tile strong {
+            display: block;
+            margin-top: 12px;
+            color: var(--ink);
+            font-size: 15px;
+        }
+
+        .status-tile strong::before {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            margin-right: 7px;
+            border-radius: 50%;
+            background: var(--jade);
+            content: "";
+            vertical-align: 2px;
+        }
+
+        .status-art-line {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 22px;
+            color: var(--ink-soft);
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 11px;
+        }
+
+        .status-track {
+            flex: 1;
+            height: 7px;
+            overflow: hidden;
+            border-radius: 99px;
+            background: var(--coral-pale);
+        }
+
+        .status-track span {
+            display: block;
+            width: 78%;
+            height: 100%;
+            border-radius: inherit;
+            background: var(--coral);
+        }
+
         .quick-stats {
             position: relative;
             z-index: 2;
@@ -543,17 +720,19 @@
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            border: 1px solid var(--ink);
+            border: 1px solid var(--glass-line);
             border-radius: 15px;
-            background: var(--ink);
+            background: var(--glass);
+            backdrop-filter: blur(18px) saturate(112%);
+            -webkit-backdrop-filter: blur(18px) saturate(112%);
             box-shadow: var(--shadow-small);
         }
 
         .stat-item {
             min-height: 110px;
             padding: 22px 24px;
-            border-right: 1px solid rgba(255, 255, 255, 0.15);
-            color: var(--paper);
+            border-right: 1px solid rgba(64, 55, 66, 0.1);
+            color: var(--ink);
         }
 
         .stat-item:last-child {
@@ -568,7 +747,7 @@
 
         .stat-label {
             margin-top: 5px;
-            color: #dbcbd0;
+            color: var(--ink-soft);
             font-size: 12px;
             font-weight: 700;
         }
@@ -619,9 +798,11 @@
         .feature-card {
             min-height: 270px;
             padding: 24px;
-            border: 1px solid var(--line);
+            border: 1px solid var(--glass-line);
             border-radius: var(--radius);
-            background: var(--paper-strong);
+            background: var(--glass);
+            backdrop-filter: blur(16px) saturate(115%);
+            -webkit-backdrop-filter: blur(16px) saturate(115%);
             transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
         }
 
@@ -675,14 +856,16 @@
         }
 
         .workflow-section {
-            background: var(--ink);
-            color: var(--paper);
+            background: color-mix(in srgb, var(--paper-muted) 78%, transparent);
+            color: var(--ink);
+            backdrop-filter: blur(16px) saturate(112%);
+            -webkit-backdrop-filter: blur(16px) saturate(112%);
         }
 
         .workflow-section .section-kicker,
         .workflow-section .section-description,
         .workflow-section .section-aside {
-            color: #d8c7ca;
+            color: var(--ink-soft);
         }
 
         .workflow-section .section-kicker::before {
@@ -706,7 +889,7 @@
             grid-template-columns: 53px 1fr;
             gap: 17px;
             padding: 20px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+            border-bottom: 1px solid rgba(64, 55, 66, 0.1);
         }
 
         .workflow-step:last-child {
@@ -732,16 +915,18 @@
 
         .workflow-step p {
             margin-top: 5px;
-            color: #c9b9bd;
+            color: var(--ink-soft);
             font-size: 13px;
         }
 
         .terminal {
             overflow: hidden;
-            border: 1px solid #66515d;
+            border: 1px solid var(--glass-line);
             border-radius: 18px;
-            background: #171118;
-            box-shadow: 9px 9px 0 var(--coral-dark);
+            background: var(--glass);
+            backdrop-filter: blur(16px) saturate(116%);
+            -webkit-backdrop-filter: blur(16px) saturate(116%);
+            box-shadow: 9px 9px 0 rgba(64, 55, 66, 0.1);
         }
 
         .terminal-head {
@@ -749,8 +934,8 @@
             align-items: center;
             justify-content: space-between;
             padding: 15px 18px;
-            border-bottom: 1px solid #3f303a;
-            color: #d9cdd0;
+            border-bottom: 1px solid var(--line);
+            color: var(--ink-soft);
             font-family: Consolas, "Courier New", monospace;
             font-size: 11px;
         }
@@ -759,14 +944,14 @@
             display: inline-flex;
             align-items: center;
             gap: 7px;
-            color: #91d6bd;
+            color: var(--jade);
         }
 
         .terminal-status::before {
             width: 7px;
             height: 7px;
             border-radius: 50%;
-            background: #91d6bd;
+            background: var(--jade);
             content: "";
         }
 
@@ -783,19 +968,19 @@
         }
 
         .terminal-muted {
-            color: #816e78;
+            color: var(--ink-soft);
         }
 
         .terminal-key {
-            color: #f39b8c;
+            color: var(--coral-dark);
         }
 
         .terminal-string {
-            color: #a9d9c1;
+            color: var(--jade);
         }
 
         .terminal-number {
-            color: #e4bc6a;
+            color: var(--gold);
         }
 
         .terminal-cursor {
@@ -815,7 +1000,9 @@
         }
 
         .models-section {
-            background: var(--paper-muted);
+            background: color-mix(in srgb, var(--paper-muted) 76%, transparent);
+            backdrop-filter: blur(16px) saturate(114%);
+            -webkit-backdrop-filter: blur(16px) saturate(114%);
         }
 
         .models-layout {
@@ -858,11 +1045,11 @@
             width: 124px;
             height: 124px;
             place-items: center;
-            border: 1px solid var(--ink);
+            border: 1px solid var(--coral);
             border-radius: 50%;
-            background: var(--coral);
-            color: #ffffff;
-            box-shadow: 6px 6px 0 var(--ink);
+            background: var(--coral-pale);
+            color: var(--coral-dark);
+            box-shadow: 6px 6px 0 rgba(64, 55, 66, 0.1);
             text-align: center;
         }
 
@@ -887,9 +1074,11 @@
             align-items: center;
             gap: 8px;
             padding: 9px 11px;
-            border: 1px solid var(--line);
+            border: 1px solid var(--glass-line);
             border-radius: 10px;
-            background: var(--paper-strong);
+            background: var(--glass-strong);
+            backdrop-filter: blur(14px) saturate(112%);
+            -webkit-backdrop-filter: blur(14px) saturate(112%);
             box-shadow: var(--shadow-small);
             font-family: Consolas, "Courier New", monospace;
             font-size: 11px;
@@ -956,10 +1145,12 @@
             gap: 15px;
             margin-top: 30px;
             padding: 17px 18px;
-            border: 1px solid var(--ink);
+            border: 1px solid var(--glass-line);
             border-radius: 13px;
-            background: var(--ink);
-            color: var(--paper);
+            background: var(--glass);
+            color: var(--ink);
+            backdrop-filter: blur(16px) saturate(115%);
+            -webkit-backdrop-filter: blur(16px) saturate(115%);
         }
 
         .endpoint-text {
@@ -976,10 +1167,10 @@
             align-items: center;
             gap: 7px;
             padding: 8px 10px;
-            border: 1px solid #65505b;
+            border: 1px solid var(--glass-line);
             border-radius: 9px;
-            background: transparent;
-            color: #ffffff;
+            background: var(--glass-soft);
+            color: var(--ink);
             font-size: 11px;
             font-weight: 800;
             transition: background-color 160ms ease, border-color 160ms ease;
@@ -987,7 +1178,7 @@
 
         .copy-btn:hover {
             border-color: var(--coral);
-            background: var(--coral-dark);
+            background: var(--coral-pale);
         }
 
         .copy-btn svg {
@@ -1006,9 +1197,11 @@
         }
 
         .faq-list details {
-            border: 1px solid var(--line);
+            border: 1px solid var(--glass-line);
             border-radius: 13px;
-            background: var(--paper-strong);
+            background: var(--glass);
+            backdrop-filter: blur(16px) saturate(115%);
+            -webkit-backdrop-filter: blur(16px) saturate(115%);
         }
 
         .faq-list summary {
@@ -1059,7 +1252,9 @@
             padding: 95px 0;
             border-top: 1px solid var(--line);
             border-bottom: 1px solid var(--line);
-            background: var(--coral-pale);
+            background: color-mix(in srgb, var(--coral-pale) 72%, transparent);
+            backdrop-filter: blur(16px) saturate(114%);
+            -webkit-backdrop-filter: blur(16px) saturate(114%);
         }
 
         .cta::before,
@@ -1294,6 +1489,47 @@
                 box-shadow: 7px 7px 0 var(--ink), var(--shadow-small);
             }
 
+            .status-art-body {
+                min-height: auto;
+                padding: 34px 22px 28px;
+            }
+
+            .status-art-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                margin-top: 30px;
+            }
+
+            .status-tile {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                min-height: 62px;
+                padding: 12px 14px;
+            }
+
+            .status-tile strong {
+                margin-top: 0;
+            }
+
+            .status-art-line {
+                align-items: flex-start;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin-top: 18px;
+            }
+
+            .status-track {
+                flex-basis: 100%;
+                order: 3;
+            }
+
+            .art-caption {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 5px;
+            }
+
             .quick-stats {
                 margin-top: 0;
             }
@@ -1398,6 +1634,10 @@
     </style>
 </head>
 <body>
+    <div class="background-scene" aria-hidden="true">
+        <img id="anime-background" src="https://t.alcy.cc/ycy" alt="" referrerpolicy="no-referrer">
+    </div>
+
     <header class="site-header" id="site-header">
         <div class="header-inner">
             <a class="brand" href="#top" aria-label="API 中转站首页" id="brand-link">
@@ -1409,7 +1649,7 @@
                     </svg>
                 </span>
                 <span>
-                    <span data-site-name>API Gateway</span>
+                    <span data-site-name>WANAPI</span>
                     <small class="brand-caption">inspiration gateway</small>
                 </span>
             </a>
@@ -1446,10 +1686,10 @@
         <section class="hero">
             <div class="container hero-grid">
                 <div class="hero-copy reveal">
-                    <span class="eyebrow"><span data-site-name>API Gateway</span> / custom home</span>
+                    <span class="eyebrow"><span data-site-name>WANAPI</span> / custom home</span>
                     <h1 class="hero-title">让每一次调用，<em>都有自己的灵感。</em></h1>
                     <p class="hero-subtitle">一个有温度的 AI API 网关，把模型、额度与团队协作整理成清晰的入口。</p>
-                    <p class="hero-description">通过统一接口、渠道路由和用量管理能力，把模型服务整理成清晰的入口。这个页面是纯静态首页，可直接托管到 GitHub Pages，再填入 API 中转站后台的首页内容。</p>
+                    <p class="hero-description">通过统一接口、渠道路由和用量管理能力，把模型服务整理成清晰的入口，让每一次调用都有稳定、清楚的响应路径。</p>
                     <div class="hero-actions">
                         <a class="btn btn-primary js-console-link" href="#console" data-path="/register" target="_top">
                             开始使用
@@ -1465,48 +1705,39 @@
                             </svg>
                         </a>
                     </div>
-                    <p class="hero-note"><span class="pulse-dot"></span>纯静态页面 · 适合 GitHub Pages · 支持 iframe 首页</p>
                 </div>
 
                 <div class="hero-art-wrap reveal">
                     <div class="hero-art">
                         <div class="hero-art-head">
                             <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                            <span class="hero-art-label">/inspiration-console</span>
+                            <span class="hero-art-label">/wanapi/gateway</span>
                         </div>
-                        <svg viewBox="0 0 620 470" role="img" aria-label="二次元风格的 AI API 网关控制台插画">
-                            <rect width="620" height="470" fill="#f4eee8"/>
-                            <path d="M0 370h620" stroke="#e6dcd4"/>
-                            <path d="M74 100h472" stroke="#e6dcd4" stroke-dasharray="5 9"/>
-                            <path d="M110 40v350M510 40v350" stroke="#e6dcd4" stroke-dasharray="5 9"/>
-                            <path d="m51 82 29-17 29 17v34l-29 17-29-17V82Z" fill="#d9eee8" stroke="#211923" stroke-width="2"/>
-                            <path d="m515 330 25-15 25 15v30l-25 15-25-15v-30Z" fill="#f7eac8" stroke="#211923" stroke-width="2"/>
-                            <circle cx="104" cy="316" r="7" fill="#e35f55"/>
-                            <circle cx="534" cy="95" r="7" fill="#2c877c"/>
-                            <path d="M185 369c11-63 56-101 123-101s112 38 123 101H185Z" fill="#e35f55" stroke="#211923" stroke-width="3"/>
-                            <path d="M212 346c11-38 44-62 96-62s85 24 96 62" fill="#f9ddd6" stroke="#211923" stroke-width="3"/>
-                            <path d="M234 248c2-52 35-84 76-84 43 0 77 34 77 84l-16 54H250l-16-54Z" fill="#211923"/>
-                            <path d="M255 230c0-35 22-57 56-57 34 0 56 22 56 57v46c0 37-22 61-56 61-34 0-56-24-56-61v-46Z" fill="#ffd6c1" stroke="#211923" stroke-width="3"/>
-                            <path d="M255 231c10-43 26-60 56-60 35 0 52 20 56 60-18-11-31-26-38-43-18 28-43 43-74 43Z" fill="#8e4549"/>
-                            <path d="M253 227c-22-4-28-27-14-43 15 2 28 7 37 17l-4 34-19-8ZM371 227c22-4 28-27 14-43-15 2-28 7-37 17l4 34 19-8Z" fill="#8e4549" stroke="#211923" stroke-width="3"/>
-                            <path d="M276 240c7-5 15-5 22 0M324 240c7-5 15-5 22 0" stroke="#211923" stroke-width="3" stroke-linecap="round"/>
-                            <path d="M292 261c9 7 20 7 29 0" stroke="#b94746" stroke-width="2.5" stroke-linecap="round"/>
-                            <circle cx="284" cy="251" r="3.5" fill="#e35f55"/>
-                            <circle cx="336" cy="251" r="3.5" fill="#e35f55"/>
-                            <path d="M265 212c-10-21-8-47 5-62M350 212c10-21 8-47-5-62" stroke="#e35f55" stroke-width="6" stroke-linecap="round"/>
-                            <path d="M246 194 223 178l6 35M374 194l23-16-6 35" fill="#f7eac8" stroke="#211923" stroke-width="3" stroke-linejoin="round"/>
-                            <path d="M259 303c-19 13-33 30-41 50M361 303c19 13 33 30 41 50" stroke="#211923" stroke-width="8" stroke-linecap="round"/>
-                            <path d="M201 363c22-21 43-28 58-30l25 36h-88l5-6ZM419 363c-22-21-43-28-58-30l-25 36h88l-5-6Z" fill="#2c877c" stroke="#211923" stroke-width="3" stroke-linejoin="round"/>
-                            <path d="M158 393h304" stroke="#211923" stroke-width="3" stroke-linecap="round"/>
-                            <rect x="196" y="362" width="228" height="58" rx="12" fill="#211923"/>
-                            <rect x="214" y="375" width="117" height="6" rx="3" fill="#e35f55"/>
-                            <rect x="214" y="390" width="79" height="6" rx="3" fill="#91d6bd"/>
-                            <rect x="354" y="375" width="50" height="21" rx="6" fill="#f7eac8"/>
-                            <path d="m379 381 8 5-8 5v-10Z" fill="#211923"/>
-                            <path d="m83 268 13-13 13 13-13 13-13-13ZM501 216l10-10 10 10-10 10-10-10Z" fill="#f7eac8" stroke="#211923" stroke-width="2"/>
-                        </svg>
+                        <div class="status-art-body">
+                            <div class="status-art-brand">WANAPI</div>
+                            <p class="status-art-subtitle">ai api gateway / live workspace</p>
+                            <div class="status-art-grid">
+                                <div class="status-tile">
+                                    <span>ROUTES</span>
+                                    <strong>READY</strong>
+                                </div>
+                                <div class="status-tile">
+                                    <span>MODELS</span>
+                                    <strong>ONLINE</strong>
+                                </div>
+                                <div class="status-tile">
+                                    <span>STREAM</span>
+                                    <strong>ACTIVE</strong>
+                                </div>
+                            </div>
+                            <div class="status-art-line">
+                                <span>gateway load</span>
+                                <div class="status-track" aria-hidden="true"><span></span></div>
+                                <strong>78%</strong>
+                            </div>
+                        </div>
                         <div class="art-caption">
-                            <strong>灵感通道已准备</strong>
+                            <strong>WANAPI 网关状态正常</strong>
                             <span>route / observe / create</span>
                         </div>
                     </div>
@@ -1744,7 +1975,7 @@
                                 <path d="M8.5 13h7M10.3 9.7h3.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
                             </svg>
                         </span>
-                        <span><span data-site-name>API Gateway</span> · 灵感控制台</span>
+                        <span><span data-site-name>WANAPI</span> · 灵感控制台</span>
                     </div>
                     <p class="footer-copy">请仅在合法授权的上游服务、团队内部或合规的私有化场景中使用。此页面为静态首页，不代表具体实例的服务承诺。</p>
                 </div>
@@ -1771,14 +2002,19 @@
             const linkStatus = document.getElementById("link-status");
             const endpointCode = document.getElementById("endpoint-code");
             const copyEndpoint = document.getElementById("copy-endpoint");
+            const animeBackground = document.getElementById("anime-background");
             const brandLink = document.getElementById("brand-link");
             const siteNameNodes = Array.from(document.querySelectorAll("[data-site-name]"));
             const navLinks = Array.from(document.querySelectorAll("[data-nav-link]"));
             const sections = Array.from(document.querySelectorAll("main section[id]"));
             const consoleLinks = Array.from(document.querySelectorAll(".js-console-link"));
             const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-            const DEFAULT_SITE_NAME = "API Gateway";
+            const DEFAULT_SITE_NAME = "WANAPI";
             let linkStatusTimer;
+
+            animeBackground?.addEventListener("error", () => {
+                document.documentElement.classList.add("background-fallback");
+            });
 
             function sanitizeSiteName(value) {
                 const name = String(value || "").replace(/\s+/g, " ").trim();
@@ -1789,40 +2025,7 @@
                 const params = new URLSearchParams(window.location.search);
                 const queryName = params.get("siteName") || params.get("name");
                 const explicitName = sanitizeSiteName(queryName);
-                if (explicitName) {
-                    return explicitName;
-                }
-
-                if (!document.referrer) {
-                    return DEFAULT_SITE_NAME;
-                }
-
-                try {
-                    const hostname = new URL(document.referrer).hostname.toLowerCase();
-                    if (
-                        hostname === "localhost" ||
-                        /^[\d.]+$/.test(hostname) ||
-                        hostname === "::1"
-                    ) {
-                        return DEFAULT_SITE_NAME;
-                    }
-
-                    const labels = hostname.split(".").filter(Boolean);
-                    const secondLevel = labels[labels.length - 2] || labels[0];
-                    const suffixes = new Set(["co", "com", "net", "org", "gov", "edu"]);
-                    const rawName = suffixes.has(secondLevel)
-                        ? labels[labels.length - 3]
-                        : secondLevel;
-                    const formattedName = rawName
-                        ? rawName
-                            .replace(/[-_]+/g, " ")
-                            .replace(/\b\w/g, (letter) => letter.toUpperCase())
-                        : "";
-
-                    return sanitizeSiteName(formattedName) || DEFAULT_SITE_NAME;
-                } catch {
-                    return DEFAULT_SITE_NAME;
-                }
+                return explicitName || DEFAULT_SITE_NAME;
             }
 
             function applySiteName(value) {
@@ -1834,7 +2037,7 @@
                 document.title = `${siteName} · 灵感控制台`;
                 document.querySelector('meta[name="description"]')?.setAttribute(
                     "content",
-                    `${siteName} 二次元主题首页，适用于 GitHub Pages 静态托管。`
+                    `${siteName} AI API 中转站首页。`
                 );
             }
 
