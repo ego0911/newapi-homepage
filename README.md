@@ -99,6 +99,8 @@ window.WANAPI_CONTENT = {
 **api中转站推荐**
 `newapi.zhouwanx.top`
 
+**希望给一个star**
+
 ## 许可说明
 
 可以随意使用
