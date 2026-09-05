@@ -237,6 +237,11 @@
     </main>
 
     <div class="link-status" id="link-status" role="status" aria-live="polite"></div>
+    <!-- 悬浮唱片：访客点击后播放随机选中的背景音乐，再次点击暂停。 -->
+    <button class="music-disc" type="button" id="music-disc" aria-label="播放或暂停背景音乐">
+        <img src="assets/brand-avatar.jpg" alt="">
+    </button>
+    <audio id="bgm" loop preload="auto"></audio>
     <!-- 可编辑文字配置必须先加载，script.js 才能把配置应用到页面。 -->
     <script src="content-config.js"></script>
     <!-- 页面交互拆分到 script.js，使用 defer 避免阻塞 HTML 解析。 -->

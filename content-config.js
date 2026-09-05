@@ -85,6 +85,11 @@ window.WANAPI_CONTENT = {
         prompt: "嗨，今天过得怎么样？",
     },
 
+    // 悬浮音乐播放器：tracks 是曲目数组，每次进入页面随机选一首，点击唱片播放。
+    music: {
+        tracks: ["HOYO-MiX - Elysian Realm.mp3", "true.mp3"],
+    },
+
     // 控制台、注册页和文档链接：路径通常以 / 开头；外部链接必须写完整 https:// 地址。
     links: {
         consolePath: "/",

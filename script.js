@@ -285,6 +285,62 @@ try {
             });
 
             /*
+                悬浮音乐播放器：
+                进入页面随机选一首并立即尝试播放——
+                回访访客（浏览器记住过本站）可直接听到；
+                首次访客被浏览器拦截时静默降级，页面任意点击、
+                按键、滚轮、触摸都会立即起播；唱片随时可手动切换。
+            */
+            function initMusic() {
+                const disc = document.getElementById("music-disc");
+                const audio = document.getElementById("bgm");
+                if (!disc || !audio) {
+                    return;
+                }
+
+                const tracks = contentConfig.music?.tracks;
+                if (!Array.isArray(tracks) || tracks.length === 0) {
+                    disc.classList.add("is-hidden");
+                    return;
+                }
+
+                audio.src = encodeURI(tracks[Math.floor(Math.random() * tracks.length)]);
+
+                const updateState = () => {
+                    disc.classList.toggle("is-playing", !audio.paused);
+                };
+                audio.addEventListener("play", updateState);
+                audio.addEventListener("pause", updateState);
+
+                disc.addEventListener("click", () => {
+                    if (audio.paused) {
+                        audio.play().catch(() => {});
+                    } else {
+                        audio.pause();
+                    }
+                });
+
+                const tryPlay = () => {
+                    if (audio.paused) {
+                        audio.play().catch(() => {});
+                    }
+                };
+
+                // 立即尝试自动播放：被拦时静默失败，不影响页面。
+                tryPlay();
+
+                // 首次访客：任意手势（无需点唱片）立即起播，成功后移除监听。
+                const gestures = ["click", "keydown", "pointerdown", "wheel", "touchstart"];
+                const kick = () => {
+                    tryPlay();
+                    if (!audio.paused) {
+                        gestures.forEach((name) => document.removeEventListener(name, kick));
+                    }
+                };
+                gestures.forEach((name) => document.addEventListener(name, kick, { passive: true }));
+            }
+
+            /*
                 初始化顺序：
                 先渲染播报条与背景角色，再应用文字配置，
                 最后同步外层链接并启动观察器。
@@ -293,6 +349,7 @@ try {
             renderTicker();
             applyBackgroundImage();
             applyContentConfig();
+            initMusic();
             syncNewApiLinks();
             observeSections();
             revealOnScroll();
