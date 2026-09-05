@@ -38,3 +38,11 @@ Entries discovered by the Agent during task execution should follow this format:
 - Instructions:
   - 用户没有向工作区上传文件的权限，素材（文案、图片等方案文件）放在其 GitHub 仓库 ego0911/newapi-homepage 中，需要用 raw.githubusercontent.com 直接拉取（raw 接口不受 GitHub API 限流影响）
   - 站点品牌已从 WANAPI 更名为"糖糕的小屋"（TangGao API），真实示例域名 tanggao.0931116.xyz；页面文案以仓库中的《糖糕中转站主页文案.md》方案为准
+
+[User Instruction Summary]
+- Date: 2026-09-05
+- Context: 用户看过"日常便签生活版"预览后明确否定并要求回滚
+- Instructions:
+  - "清爽自然版"与"日常便签生活版"两轮改动已被用户否定并回滚；页面当前停在最后提交 ebbc7ba（温馨版：糖糕在幕后为你做的小事 / 小桔灯等四卡 / whisper.json 秘密通讯机 / 暖光常亮等 stats）
+  - 生活版完整改动保存在 git stash（daily-life-edition-rejected），用户要求时可恢复
+  - 用户对文案方向的验收很严格：大改版面前先改 config + 预览给用户确认，用户点头后再提交；未经确认的风格方向默认不算通过
