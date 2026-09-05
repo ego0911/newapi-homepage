@@ -1092,6 +1092,10 @@
             color: var(--ink-soft);
         }
 
+        .terminal-punct {
+            color: var(--ink-soft);
+        }
+
         .terminal-key {
             color: var(--coral-dark);
         }

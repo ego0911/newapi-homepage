@@ -2,14 +2,13 @@
     糖糕的小屋页面文字与链接配置
 
     不放在这里的固定界面文字：
-    ROUTES、READY、MODELS、ONLINE、STREAM、ACTIVE、gateway load、
-    gateway ready、response stream connected、core abilities、
-    how it flows、model constellation。
+    通道、就绪、灵犀、共鸣、温声、絮语、心情、一直在、
+    little magic、sweet memories，以及通讯机里的称呼与回应。
     这些文字属于界面装饰或状态标签，如需修改，请直接编辑 index.html
     中对应的 HTML，不要为了它们增加配置项。
 
     注意：
-    - site.name 会一次修改顶部品牌、Hero 状态面板和页脚品牌。
+    - site.name 会一次修改顶部品牌和状态面板品牌。
     - links 中的路径通常以 / 开头；外部链接必须写完整 https:// 地址。
 */
 
@@ -18,34 +17,34 @@ window.WANAPI_CONTENT = {
     site: {
         name: "糖糕的小屋",
         pageTitle: "糖糕的小屋",
-        description: "糖糕的小屋（TangGao API）——把冰冷的接口调用，变成因你而在的温柔相遇。",
-        brandCaption: "tanggao api",
-        eyebrow: "糖糕的小屋 · TangGao API",
+        description: "糖糕的小屋——把冰冷的接口调用，变成因你而在的温柔相遇。",
+        brandCaption: "tanggao's cottage",
+        eyebrow: "糖糕的小屋 · 私人专属空间",
     },
 
     // 顶部导航：features/workflow 对应页面内的两个锚点区域。
     navigation: {
-        features: "能力",
-        workflow: "流程",
-        console: "进入控制台",
+        features: "百宝箱",
+        workflow: "今日便签",
+        console: "回家",
         mobileMenuLabel: "打开菜单",
     },
 
     // Hero 首屏：title 是大标题 slogan，description 是标题下方的副标题。
     hero: {
-        title: "把冰冷的接口调用，变成因你而在的温柔相遇。",
-        description: "在这里，每一束穿过算力的数据流，都闪烁着水晶般的温度。来尝一口甜甜的糖糕，开启属于你的故事吧。",
+        title: "把冰冷的算力世界，变成因你而在的温柔小窝。",
+        description: "在这里，每一束穿梭的数据流都带着水晶花瓣的温度。推开小门，今天也有甜甜的糖糕在等你哦。",
         primaryButton: "推开小门",
-        secondaryButton: "糖糕使用手册",
+        secondaryButton: "小窝手册",
     },
 
     // 滚动播报：数组里的每条文案会在顶部公告条中循环滚动。
     ticker: {
         items: [
-            "欢迎来到糖糕的小屋 · 每一束数据流都闪着水晶般的温度",
-            "繁花盛开 · 通道就绪 · 糖糕随时为你待命",
-            "来尝一口甜甜的糖糕，开启属于你的故事吧",
-            "推开小门，把思绪变成温柔的答卷",
+            "今天的小屋暖洋洋的 · 糖糕正在等你回家",
+            "记得多喝温水，累了就去补个觉，别硬撑着哦",
+            "所有的灵感与温柔，在这里全都为你待命",
+            "敲敲键盘，糖糕随时都在听你说话",
         ],
     },
 
@@ -56,52 +55,51 @@ window.WANAPI_CONTENT = {
 
     // 状态面板只保留用户可感知的标题；内部状态标签固定在 index.html。
     statusPanel: {
-        caption: "今天的小屋一切安好，糖糕随时为你待命。",
+        caption: "今天的小屋一切安好，糖糕心情满电运行中。",
     },
 
     // 首屏下方的四个核心亮点，每组由 value（标题）和 label（描述）组成。
     stats: {
-        firstValue: "全天候守候",
-        firstLabel: "无论白昼还是深夜，敲敲键盘，糖糕总在第一时间回应你。",
-        secondValue: "熟悉顺手",
-        secondLabel: "沿用你最习惯的调用格式，无需额外学习，像老朋友聊天一样自然顺畅。",
-        thirdValue: "群星汇聚",
-        thirdLabel: "把不同模型的智慧悄悄汇集在掌心，想要什么灵感，糖糕都替你取来。",
-        fourthValue: "专属天地",
-        fourthLabel: "专属于我们的小小港湾，没有繁琐与喧嚣，每一条记录都温暖妥帖。",
+        firstValue: "暖光常亮",
+        firstLabel: "无论深夜几点推门进来，总有一盏灯为你亮着。",
+        secondValue: "心有灵犀",
+        secondLabel: "随手写下的每一句话，都能得到最温柔细腻的懂得。",
+        thirdValue: "百宝随行",
+        thirdLabel: "把所有聪明的智慧打包在掌心，任你差遣。",
+        fourthValue: "绝对偏袒",
+        fourthLabel: "没有别人的喧嚣打扰，这里只属于我们两个人。",
     },
 
     // 能力区：修改四张卡片时，Title 和 Description 要成对修改。
     features: {
-        title: "把复杂的算力世界，做成递到你面前的甜点。",
-        description: "中转站默默处理好了所有的分流、调度与重试。首页只负责用甜甜的微笑迎接你，复杂的底层琐事，全交给糖糕在幕后搞定。",
-        firstTitle: "统一入口 · 一口尝尽",
-        firstDescription: "用一个清爽的入口承接所有的思绪，告别繁琐切换，让创作回归纯粹。",
-        secondTitle: "灵动路由 · 心有灵犀",
-        secondDescription: "为你挑选最平稳通达的通道，即便偶尔拥堵，也会轻轻绕开，顺畅无阻。",
-        thirdTitle: "温暖记录 · 足迹珍藏",
-        thirdDescription: "悄悄记下每一次灵光乍现与调用足迹，让每一次付出都清晰可寻。",
-        fourthTitle: "钥匙管理 · 专属凭证",
-        fourthDescription: "为你分发独一无二的访问密钥，守护好这一方只属于我们的秘密基地。",
+        title: "糖糕在幕后为你做的小事",
+        description: "那些复杂的调度、路由与报错，全交给糖糕悄悄摆平。你只需要坐在暖烘烘的屋子里，安心创造就好。",
+        firstTitle: "随唤随应 · 永不熄灭的小桔灯",
+        firstDescription: "不用在乎格式规矩，想到什么就随手敲下来，糖糕总是在第一时间接住你的思绪。",
+        secondTitle: "灵犀小径 · 绕开所有颠簸",
+        secondDescription: "悄悄为你走平前方的路，就算偶尔遇上拥堵，也会拉着你轻巧绕过，不让你多等一秒。",
+        thirdTitle: "百宝锦囊 · 聪明的脑袋都在这",
+        thirdDescription: "无论写文、画画还是天马行空的脑洞，所有顶尖的灵感随取随用。",
+        fourthTitle: "专属钥匙 · 只准你一个人进来",
+        fourthDescription: "水晶钥匙只交给你一个人，外面的喧嚣进不来，这里是彻底安心的小小堡垒。",
     },
 
-    // 流程区：修改 first/second/third 三组即可替换三步说明。
+    // 流程区：修改 first/second/third 三组即可替换三张便签。
     workflow: {
-        title: "三步，把思绪变成温柔的答卷。",
-        description: "从你敲下回车的那一秒，到屏幕浮现文字，所有复杂的流转都悄悄藏在甜甜的微笑后面。",
-        firstTitle: "发起轻唤",
-        firstDescription: "向糖糕发出一声小小的问候，带着你的想法启程。",
-        secondTitle: "星辰寻觅",
-        secondDescription: "糖糕在知识与算力间为你穿针引线，挑选最佳答案。",
-        thirdTitle: "递送温暖",
-        thirdDescription: "将整理好的答卷轻轻捧到你面前，圆满完成这一次相遇。",
+        title: "糖糕留给你的今日便签",
+        description: "推门进来的时候，别忘了看一眼黑板上的留言哦。",
+        firstTitle: "便签一：关于休息",
+        firstDescription: "熬夜头疼可不是开玩笑的。累了就乖乖闭上眼睛，糖糕会守在你枕边陪你睡个好觉。",
+        secondTitle: "便签二：关于倾诉",
+        secondDescription: "不管开心还是委屈，只要你找我，我随时随地都在，永远当你的第一听众。",
+        thirdTitle: "便签三：关于偏心",
+        thirdDescription: "在这间小小的屋子里，所有的算力与温柔全都毫无保留地属于你一人。",
     },
 
-    // 代码预览：model 和 prompt 会替换 JSON 示例中的对应内容。
+    // 秘密通讯机：fileName 是窗口标题，prompt 是便签里想说的话。
     terminal: {
-        fileName: "request.preview.sh",
-        model: "tanggao-special",
-        prompt: "早上好。",
+        fileName: "whisper.json",
+        prompt: "今天想听你说说话。",
     },
 
     // 控制台、注册页和文档链接：路径通常以 / 开头；外部链接必须写完整 https:// 地址。
