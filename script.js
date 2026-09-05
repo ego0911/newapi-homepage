@@ -21,8 +21,6 @@ try {
             const menuToggle = document.getElementById("menu-toggle");
             const mobileMenu = document.getElementById("mobile-menu");
             const linkStatus = document.getElementById("link-status");
-            const endpointCode = document.getElementById("endpoint-code");
-            const copyEndpoint = document.getElementById("copy-endpoint");
             const animeBackground = document.getElementById("anime-background");
             const navLinks = Array.from(document.querySelectorAll("[data-nav-link]"));
             const sections = Array.from(document.querySelectorAll("main section[id]"));
@@ -161,8 +159,6 @@ try {
                         link.setAttribute("aria-disabled", "true");
                     }
                 });
-
-                endpointCode.textContent = origin ? `${origin}/v1` : "嵌入实例后自动显示 /v1";
             }
 
             /*
@@ -264,22 +260,7 @@ try {
 
                     event.preventDefault();
                     showLinkStatus("请从 API 中转站首页 iframe 打开此页面，控制台入口会自动识别实例地址。");
-                    document.getElementById("console").scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
                 });
-            });
-
-            /* 复制当前实例的 /v1 地址，不复制固定的示例域名。 */
-            copyEndpoint.addEventListener("click", async () => {
-                const value = endpointCode.textContent;
-                try {
-                    await navigator.clipboard.writeText(value);
-                    copyEndpoint.firstChild.textContent = "已复制 ";
-                    window.setTimeout(() => {
-                        copyEndpoint.firstChild.textContent = "复制地址 ";
-                    }, 1800);
-                } catch {
-                    showLinkStatus("当前浏览器不允许自动复制，请手动选择地址。");
-                }
             });
 
             /* 滚动时只切换导航阴影，避免重新计算布局。 */

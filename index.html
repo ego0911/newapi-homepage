@@ -38,7 +38,6 @@
             <nav class="desktop-nav" aria-label="主导航">
                 <a class="nav-link is-active" href="#features" data-nav-link data-content-key="navigation.features">能力</a>
                 <a class="nav-link" href="#workflow" data-nav-link data-content-key="navigation.workflow">流程</a>
-                <a class="nav-link" href="#models" data-nav-link data-content-key="navigation.models">模型</a>
             </nav>
 
             <a class="header-action js-console-link" href="#console" data-path="/" target="_top" data-content-key="links.consolePath" data-content-attr="data-path">
@@ -57,7 +56,6 @@
         <nav class="mobile-menu" id="mobile-menu" aria-label="移动端主导航">
             <a class="nav-link" href="#features" data-nav-link data-content-key="navigation.features">能力</a>
             <a class="nav-link" href="#workflow" data-nav-link data-content-key="navigation.workflow">流程</a>
-            <a class="nav-link" href="#models" data-nav-link data-content-key="navigation.models">模型</a>
         </nav>
     </header>
 
@@ -267,49 +265,6 @@
                         <span class="terminal-line terminal-muted">&nbsp;</span>
                         <span class="terminal-line terminal-muted"># 响应预览</span>
                         <span class="terminal-line"><span class="terminal-key">200</span> · 糖糕正在温柔回应：今天的你也很棒哦，我一直在呢。<span class="terminal-cursor"></span></span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 模型区：展示常见接口类型，具体可用模型以实例后台配置为准。 -->
-        <section class="section models-section" id="models">
-            <div class="container models-layout">
-                <div class="model-orbit reveal" aria-label="模型接入示意图">
-                    <div class="orbit-core">
-                        <div>
-                            <strong>API</strong>
-                            <span>ONE GATEWAY</span>
-                        </div>
-                    </div>
-                    <span class="orbit-label">OpenAI</span>
-                    <span class="orbit-label">Claude</span>
-                    <span class="orbit-label">Gemini</span>
-                    <span class="orbit-label">Image / Audio</span>
-                </div>
-
-                <div class="model-copy reveal">
-                    <span class="section-kicker">model constellation</span>
-                    <h2 class="section-title" data-content-key="models.title">让不同模型，使用同一种节奏。</h2>
-                    <p data-content-key="models.description">官方文档列出了 OpenAI、Anthropic、Google Gemini、DeepSeek、Midjourney、Suno 等模型服务与接口方向。此页面不锁定具体供应商，实际展示以后台启用的渠道为准。</p>
-                    <div class="model-list" aria-label="模型类别">
-                        <span class="model-tag" data-content-key="models.firstTag">OpenAI compatible</span>
-                        <span class="model-tag" data-content-key="models.secondTag">Responses</span>
-                        <span class="model-tag" data-content-key="models.thirdTag">Claude Messages</span>
-                        <span class="model-tag" data-content-key="models.fourthTag">Gemini</span>
-                        <span class="model-tag" data-content-key="models.fifthTag">Rerank</span>
-                        <span class="model-tag" data-content-key="models.sixthTag">Realtime</span>
-                    </div>
-                    <!-- 入口地址会根据 iframe 外层来源自动更新。 -->
-                    <div class="endpoint-box" id="console">
-                        <code class="endpoint-text" id="endpoint-code">https://your-api.example/v1</code>
-                        <button class="copy-btn" type="button" id="copy-endpoint" aria-label="复制 API 地址">
-                            <span data-content-key="models.copyButton">复制地址</span>
-                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                <rect x="8" y="8" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.7"/>
-                                <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.7"/>
-                            </svg>
-                        </button>
                     </div>
                 </div>
             </div>

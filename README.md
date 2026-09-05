@@ -79,7 +79,6 @@ window.WANAPI_CONTENT = {
 | `features` | 功能介绍区域 |
 | `workflow` | 请求流程区域 |
 | `terminal` | API 请求示例中的模型和提示词 |
-| `models` | 模型说明、标签和复制按钮 |
 | `links` | 控制台、注册页和文档链接 |
 
 ## 项目结构

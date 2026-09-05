@@ -23,11 +23,10 @@ window.WANAPI_CONTENT = {
         eyebrow: "糖糕的小屋 · TangGao API",
     },
 
-    // 顶部导航：features/workflow/models 对应页面内的三个锚点区域。
+    // 顶部导航：features/workflow 对应页面内的两个锚点区域。
     navigation: {
         features: "能力",
         workflow: "流程",
-        models: "模型",
         console: "进入控制台",
         mobileMenuLabel: "打开菜单",
     },
@@ -103,19 +102,6 @@ window.WANAPI_CONTENT = {
         fileName: "request.preview.sh",
         model: "tanggao-special",
         prompt: "早上好。",
-    },
-
-    // 模型区：标题、描述、标签和复制按钮可以单独修改。
-    models: {
-        title: "让不同模型，使用同一种节奏。",
-        description: "官方文档列出了 OpenAI、Anthropic、Google Gemini、DeepSeek、Midjourney、Suno 等模型服务与接口方向。此页面不锁定具体供应商，实际展示以后台启用的渠道为准。",
-        firstTag: "OpenAI compatible",
-        secondTag: "Responses",
-        thirdTag: "Claude Messages",
-        fourthTag: "Gemini",
-        fifthTag: "Rerank",
-        sixthTag: "Realtime",
-        copyButton: "复制地址",
     },
 
     // 控制台、注册页和文档链接：路径通常以 / 开头；外部链接必须写完整 https:// 地址。

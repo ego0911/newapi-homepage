@@ -1120,196 +1120,6 @@
             }
         }
 
-        /* 模型区让随机背景透过浅色玻璃，保持与其他内容区的视觉连续性。 */
-        .models-section {
-            background: color-mix(in srgb, var(--paper-muted) 76%, transparent);
-            backdrop-filter: blur(16px) saturate(114%);
-            -webkit-backdrop-filter: blur(16px) saturate(114%);
-        }
-
-        .models-layout {
-            display: grid;
-            grid-template-columns: 0.8fr 1.2fr;
-            align-items: center;
-            gap: 70px;
-        }
-
-        /* 模型环形示意只使用 CSS 圆环和文字，不依赖第三方图片资源。 */
-        .model-orbit {
-            position: relative;
-            display: grid;
-            min-height: 355px;
-            place-items: center;
-        }
-
-        .model-orbit::before,
-        .model-orbit::after {
-            position: absolute;
-            border: 1px solid var(--line);
-            border-radius: 50%;
-            content: "";
-        }
-
-        .model-orbit::before {
-            width: 275px;
-            height: 275px;
-        }
-
-        .model-orbit::after {
-            width: 195px;
-            height: 195px;
-            border-color: var(--coral);
-        }
-
-        .orbit-core {
-            position: relative;
-            z-index: 1;
-            display: grid;
-            width: 124px;
-            height: 124px;
-            place-items: center;
-            border: 1px solid var(--coral);
-            border-radius: 50%;
-            background: var(--coral-pale);
-            color: var(--coral-dark);
-            box-shadow: 6px 6px 0 rgba(64, 55, 66, 0.1);
-            text-align: center;
-        }
-
-        .orbit-core strong {
-            display: block;
-            font-size: 21px;
-            line-height: 1;
-        }
-
-        .orbit-core span {
-            display: block;
-            margin-top: 7px;
-            font-family: Consolas, "Courier New", monospace;
-            font-size: 10px;
-            font-weight: 700;
-        }
-
-        .orbit-label {
-            position: absolute;
-            z-index: 2;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 9px 11px;
-            border: 1px solid var(--glass-line);
-            border-radius: 10px;
-            background: var(--glass-strong);
-            backdrop-filter: blur(14px) saturate(112%);
-            -webkit-backdrop-filter: blur(14px) saturate(112%);
-            box-shadow: var(--shadow-small);
-            font-family: Consolas, "Courier New", monospace;
-            font-size: 11px;
-            font-weight: 800;
-        }
-
-        .orbit-label::before {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--jade);
-            content: "";
-        }
-
-        .orbit-label:nth-child(2) {
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .orbit-label:nth-child(3) {
-            top: 111px;
-            right: 0;
-        }
-
-        .orbit-label:nth-child(4) {
-            bottom: 48px;
-            right: 42px;
-        }
-
-        .orbit-label:nth-child(5) {
-            bottom: 48px;
-            left: 22px;
-        }
-
-        .model-copy p {
-            max-width: 520px;
-            margin-top: 16px;
-            color: var(--ink-soft);
-            font-size: 15px;
-        }
-
-        .model-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 26px;
-        }
-
-        .model-tag {
-            padding: 10px 13px;
-            border: 1px solid var(--line);
-            border-radius: 9px;
-            background: var(--paper-strong);
-            font-family: Consolas, "Courier New", monospace;
-            font-size: 12px;
-            font-weight: 800;
-        }
-
-        /* API 地址展示框只显示当前实例地址，复制按钮由脚本处理。 */
-        .endpoint-box {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            margin-top: 30px;
-            padding: 17px 18px;
-            border: 1px solid var(--glass-line);
-            border-radius: 13px;
-            background: var(--glass);
-            color: var(--ink);
-            backdrop-filter: blur(16px) saturate(115%);
-            -webkit-backdrop-filter: blur(16px) saturate(115%);
-        }
-
-        .endpoint-text {
-            overflow: hidden;
-            font-family: Consolas, "Courier New", monospace;
-            font-size: 12px;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .copy-btn {
-            display: inline-flex;
-            flex: 0 0 auto;
-            align-items: center;
-            gap: 7px;
-            padding: 8px 10px;
-            border: 1px solid var(--glass-line);
-            border-radius: 9px;
-            background: var(--glass-soft);
-            color: var(--ink);
-            font-size: 11px;
-            font-weight: 800;
-            transition: background-color 160ms ease, border-color 160ms ease;
-        }
-
-        .copy-btn:hover {
-            border-color: var(--coral);
-            background: var(--coral-pale);
-        }
-
-        .copy-btn svg {
-            width: 14px;
-            height: 14px;
-        }
-
         /* FAQ 区使用原生 details/summary，不需要额外的弹窗组件。 */
         .faq-section {
             padding-bottom: 145px;
@@ -1429,18 +1239,9 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .workflow-layout,
-            .models-layout {
+            .workflow-layout {
                 grid-template-columns: 1fr;
                 gap: 48px;
-            }
-
-            .model-orbit {
-                min-height: 290px;
-            }
-
-            .model-copy {
-                max-width: 680px;
             }
         }
 
@@ -1595,19 +1396,6 @@
                 min-height: 280px;
                 padding: 20px 16px;
                 font-size: 10px;
-            }
-
-            .model-orbit {
-                transform: scale(0.88);
-            }
-
-            .endpoint-box {
-                align-items: stretch;
-                flex-direction: column;
-            }
-
-            .copy-btn {
-                justify-content: center;
             }
         }
 
