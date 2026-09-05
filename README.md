@@ -78,7 +78,7 @@ window.WANAPI_CONTENT = {
 | `stats` | 首屏下方的统计信息 |
 | `features` | 功能介绍区域 |
 | `workflow` | 请求流程区域 |
-| `terminal` | 终端示例窗口的文件名、模型名和消息内容 |
+| `terminal` | 秘密通讯机的窗口标题和留言内容 |
 | `links` | 控制台、注册页和文档链接 |
 
 ## 项目结构

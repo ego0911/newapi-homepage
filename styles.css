@@ -198,7 +198,7 @@
         */
         .ticker-bar {
             position: fixed;
-            top: 60px;
+            top: 20px;
             left: 50%;
             z-index: 20;
             display: flex;
@@ -216,6 +216,22 @@
 
         .ticker-bar.is-hidden {
             display: none;
+        }
+
+        .ticker-logo {
+            flex: 0 0 auto;
+            width: 26px;
+            height: 26px;
+            border: 1px solid var(--ink);
+            border-radius: 9px;
+            overflow: hidden;
+            box-shadow: 2px 2px 0 var(--ink);
+        }
+
+        .ticker-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* 播报视口两端淡出，文案滚动到边缘时自然消失。 */
@@ -252,7 +268,7 @@
         */
         .site-header {
             position: fixed;
-            top: 102px;
+            top: 72px;
             left: 50%;
             z-index: 20;
             width: min(1180px, calc(100% - 40px));
@@ -432,7 +448,7 @@
             position: relative;
             overflow-x: clip;
             min-height: 760px;
-            padding: 210px 0 110px;
+            padding: 180px 0 110px;
         }
 
         html.is-embedded .hero {
@@ -444,6 +460,365 @@
             margin-top: 0;
         }
 
+        /* minmax 保证右侧状态面板不会在中等屏幕被压缩到不可读。 */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.95fr) minmax(440px, 1.05fr);
+            align-items: center;
+            gap: clamp(40px, 8vw, 112px);
+        }
+
+        /* Hero 文案保持在背景之上，但不额外包裹成不必要的卡片。 */
+        .hero-copy {
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow,
+        .section-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: var(--coral-dark);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before,
+        .section-kicker::before {
+            display: inline-block;
+            width: 25px;
+            height: 3px;
+            border-radius: 99px;
+            background: var(--coral);
+            content: "";
+        }
+
+        .hero-title {
+            max-width: 650px;
+            margin-top: 18px;
+            font-size: clamp(34px, 4.6vw, 54px);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.12;
+        }
+
+        .hero-title em {
+            display: block;
+            color: var(--coral);
+            font-style: normal;
+        }
+
+        .hero-subtitle {
+            max-width: 570px;
+            margin-top: 26px;
+            color: var(--ink-soft);
+            font-size: clamp(18px, 2vw, 23px);
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        .hero-description {
+            max-width: 550px;
+            margin-top: 16px;
+            color: var(--ink-soft);
+            font-size: 15px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        /*
+            通用按钮：
+            统一高度和图标间距，确保中文文案、英文文案都不会改变按钮尺寸。
+        */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            min-height: 48px;
+            padding: 0 18px;
+            border: 1px solid var(--ink);
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 900;
+            backdrop-filter: blur(8px) saturate(115%);
+            -webkit-backdrop-filter: blur(8px) saturate(115%);
+            transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+        }
+
+        .btn svg {
+            width: 17px;
+            height: 17px;
+        }
+
+        /* 主按钮使用浅珊瑚色，避免在浅色背景上形成过重的黑色块。 */
+        .btn-primary {
+            background: var(--coral-pale);
+            color: var(--coral-dark);
+            border-color: var(--coral);
+            box-shadow: 5px 5px 0 rgba(64, 55, 66, 0.12);
+        }
+
+        .btn-primary:hover {
+            background: var(--coral);
+            color: var(--ink);
+            box-shadow: 3px 3px 0 rgba(64, 55, 66, 0.12);
+            transform: translate(2px, 2px);
+        }
+
+        /* 次按钮使用透明玻璃，让随机背景轻微透出。 */
+        .btn-secondary {
+            background: var(--glass-strong);
+            color: var(--ink);
+            backdrop-filter: blur(10px) saturate(120%);
+            -webkit-backdrop-filter: blur(10px) saturate(120%);
+        }
+
+        .btn-secondary:hover {
+            background: var(--jade-pale);
+            transform: translateY(-2px);
+        }
+
+        .hero-note {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            margin-top: 25px;
+            color: var(--ink-soft);
+            font-size: 12px;
+        }
+
+        .pulse-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--jade);
+            box-shadow: 0 0 0 5px var(--jade-pale);
+        }
+
+        /*
+            WANAPI 状态面板：
+            原来的角色插画已替换成轻量状态信息，避免随机背景和前景插画互相抢焦点。
+        */
+        .hero-art-wrap {
+            position: relative;
+            min-width: 0;
+        }
+
+        .hero-art-wrap::before {
+            position: absolute;
+            top: -38px;
+            right: -28px;
+            width: 120px;
+            height: 120px;
+            border: 1px solid var(--coral);
+            border-radius: 50%;
+            content: "";
+            opacity: 0.55;
+        }
+
+        .hero-art-wrap::after {
+            position: absolute;
+            bottom: 15px;
+            left: -30px;
+            width: 90px;
+            height: 90px;
+            border: 1px solid var(--jade);
+            border-radius: 15px;
+            content: "";
+            opacity: 0.55;
+            transform: rotate(18deg);
+        }
+
+        /* 面板本身使用较强的玻璃模糊，保证状态文字在随机图片上始终可读。 */
+        .hero-art {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            overflow: hidden;
+            border: 1px solid color-mix(in srgb, var(--ink) 72%, var(--glass-line));
+            border-radius: 28px;
+            background: var(--glass);
+            backdrop-filter: blur(22px) saturate(118%);
+            -webkit-backdrop-filter: blur(22px) saturate(118%);
+            box-shadow: 12px 12px 0 var(--ink), var(--shadow);
+        }
+
+        .hero-art-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 50px;
+            padding: 0 18px;
+            border-bottom: 1px solid var(--line);
+            background: var(--glass-strong);
+            backdrop-filter: blur(16px) saturate(115%);
+            -webkit-backdrop-filter: blur(16px) saturate(115%);
+        }
+
+        .window-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .window-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--coral);
+        }
+
+        .window-dots span:nth-child(2) {
+            background: var(--gold);
+        }
+
+        .window-dots span:nth-child(3) {
+            background: var(--jade);
+        }
+
+        .hero-art-label {
+            color: var(--ink-soft);
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .hero-art svg {
+            display: block;
+            width: 100%;
+            height: auto;
+            background: var(--paper-strong);
+        }
+
+        .art-caption {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 15px 18px 17px;
+            border-top: 1px solid var(--line);
+            background: var(--glass-strong);
+            backdrop-filter: blur(16px) saturate(115%);
+            -webkit-backdrop-filter: blur(16px) saturate(115%);
+        }
+
+        .art-caption strong {
+            font-size: 13px;
+        }
+
+        .art-caption span {
+            color: var(--ink-soft);
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 11px;
+        }
+
+        /* 状态面板内部保留细网格，作为控制台风格的矢量化装饰。 */
+        .status-art-body {
+            min-height: 340px;
+            padding: 48px 42px 38px;
+            background:
+                linear-gradient(rgba(227, 95, 85, 0.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(227, 95, 85, 0.07) 1px, transparent 1px);
+            background-size: 34px 34px;
+            backdrop-filter: blur(8px) saturate(115%);
+            -webkit-backdrop-filter: blur(8px) saturate(115%);
+        }
+
+        .status-art-brand {
+            color: var(--coral-dark);
+            font-family: Consolas, "Courier New", monospace;
+            font-size: clamp(42px, 7vw, 76px);
+            font-weight: 900;
+            letter-spacing: -0.08em;
+            line-height: 0.95;
+        }
+
+        .status-art-subtitle {
+            margin-top: 12px;
+            color: var(--ink-soft);
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* 桌面端三列展示网关状态，手机端在媒体查询中改成纵向信息行。 */
+        .status-art-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 48px;
+        }
+
+        .status-tile {
+            min-height: 86px;
+            padding: 14px;
+            border: 1px solid var(--glass-line);
+            border-radius: 12px;
+            background: var(--glass-soft);
+            backdrop-filter: blur(14px) saturate(115%);
+            -webkit-backdrop-filter: blur(14px) saturate(115%);
+        }
+
+        .status-tile span {
+            display: block;
+            color: var(--ink-soft);
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .status-tile strong {
+            display: block;
+            margin-top: 12px;
+            color: var(--ink);
+            font-size: 15px;
+        }
+
+        .status-tile strong::before {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            margin-right: 7px;
+            border-radius: 50%;
+            background: var(--jade);
+            content: "";
+            vertical-align: 2px;
+        }
+
+        .status-art-line {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 22px;
+            color: var(--ink-soft);
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 11px;
+        }
+
+        .status-track {
+            flex: 1;
+            height: 7px;
+            overflow: hidden;
+            border-radius: 99px;
+            background: var(--coral-pale);
+        }
+
+        .status-track span {
+            display: block;
+            width: 78%;
+            height: 100%;
+            border-radius: inherit;
+            background: var(--coral);
         }
 
         /* 首屏下方的统计条与 Hero 保持轻微重叠，形成连续的内容入口。 */
@@ -852,7 +1227,7 @@
         @media (max-width: 1000px) {
             .hero-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 45px;
             }
 
             .hero-copy {
@@ -887,7 +1262,7 @@
             }
 
             .site-header {
-                top: 92px;
+                top: 62px;
             }
 
             .header-inner {
@@ -907,7 +1282,7 @@
 
             .hero {
                 min-height: auto;
-                padding: 162px 0 75px;
+                padding: 132px 0 75px;
             }
 
             html.is-embedded .hero {
