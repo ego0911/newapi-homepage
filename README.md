@@ -75,7 +75,6 @@ window.WANAPI_CONTENT = {
 | `site` | 品牌名称、页面标题和页面描述 |
 | `navigation` | 顶部导航和控制台按钮文字 |
 | `hero` | 首屏标题、介绍和按钮文字 |
-| `stats` | 首屏下方的统计信息 |
 | `features` | 功能介绍区域 |
 | `workflow` | 请求流程区域 |
 | `terminal` | 秘密通讯机的窗口标题和留言内容 |
