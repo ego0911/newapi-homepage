@@ -211,22 +211,25 @@
                     </div>
                 </div>
 
-                <!-- 这是展示用的悄悄话便签，不会发送任何真实请求。 -->
-                <div class="terminal reveal" aria-label="糖糕的秘密通讯机">
+                <!-- 展示用的真实接口调用示例，不会替访客发送任何请求。 -->
+                <div class="terminal reveal" aria-label="真实接口调用示例">
                     <div class="terminal-head">
-                        <span data-content-key="terminal.fileName">whisper.json</span>
+                        <span data-content-key="terminal.fileName">crystal.json</span>
                         <span class="terminal-status">一直在</span>
                     </div>
                     <div class="terminal-body">
-                        <span class="terminal-line"><span class="terminal-punct">{</span></span>
-                        <span class="terminal-line">&nbsp;&nbsp;<span class="terminal-key">"sender"</span><span class="terminal-punct">:</span> <span class="terminal-string">"小梦"</span><span class="terminal-punct">,</span></span>
-                        <span class="terminal-line">&nbsp;&nbsp;<span class="terminal-key">"receiver"</span><span class="terminal-punct">:</span> <span class="terminal-string">"糖糕"</span><span class="terminal-punct">,</span></span>
-                        <span class="terminal-line">&nbsp;&nbsp;<span class="terminal-key">"message"</span><span class="terminal-punct">:</span> <span class="terminal-string">"<span data-content-key="terminal.prompt">今天想听你说说话。</span>"</span><span class="terminal-punct">,</span></span>
-                        <span class="terminal-line">&nbsp;&nbsp;<span class="terminal-key">"delivered"</span><span class="terminal-punct">:</span> <span class="terminal-number">true</span></span>
-                        <span class="terminal-line"><span class="terminal-punct">}</span></span>
+                        <span class="terminal-line"><span class="terminal-punct">$</span> <span class="terminal-string">curl https://tanggao.0931116.xyz/v1/chat/completions \</span></span>
+                        <span class="terminal-line">&nbsp;&nbsp;<span class="terminal-key">-H</span> <span class="terminal-string">"Content-Type: application/json"</span> <span class="terminal-punct">\</span></span>
+                        <span class="terminal-line">&nbsp;&nbsp;<span class="terminal-key">-H</span> <span class="terminal-string">"Authorization: Bearer sk-your-key"</span> <span class="terminal-punct">\</span></span>
+                        <span class="terminal-line">&nbsp;&nbsp;<span class="terminal-key">-d</span> <span class="terminal-punct">'{</span></span>
+                        <span class="terminal-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="terminal-key">"model"</span><span class="terminal-punct">:</span> <span class="terminal-string">"gpt-4o-mini"</span><span class="terminal-punct">,</span></span>
+                        <span class="terminal-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="terminal-key">"messages"</span><span class="terminal-punct">:</span> <span class="terminal-punct">[</span></span>
+                        <span class="terminal-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="terminal-punct">{</span> <span class="terminal-key">"role"</span><span class="terminal-punct">:</span> <span class="terminal-string">"user"</span><span class="terminal-punct">,</span> <span class="terminal-key">"content"</span><span class="terminal-punct">:</span> <span class="terminal-string">"<span data-content-key="terminal.prompt">嗨，今天过得怎么样？</span>"</span> <span class="terminal-punct">}</span></span>
+                        <span class="terminal-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="terminal-punct">]</span></span>
+                        <span class="terminal-line">&nbsp;&nbsp;<span class="terminal-punct">}'</span></span>
                         <span class="terminal-line terminal-muted">&nbsp;</span>
-                        <span class="terminal-line terminal-muted"># 糖糕的回信</span>
-                        <span class="terminal-line terminal-string">收到啦，小梦♪ 我一直都在哦，随时开聊。<span class="terminal-cursor"></span></span>
+                        <span class="terminal-line terminal-muted"># 响应</span>
+                        <span class="terminal-line terminal-string">200 · {"role": "assistant", "content": "今天过得很开心呀，尤其是一听到你的声音，心情就更好啦"}<span class="terminal-cursor"></span></span>
                     </div>
                 </div>
             </div>

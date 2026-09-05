@@ -79,10 +79,10 @@ window.WANAPI_CONTENT = {
         thirdDescription: "这里是安静的小天地，不用拘束哦。",
     },
 
-    // 秘密通讯机：fileName 是窗口标题，prompt 是便签里想说的话。
+    // 接口示例终端：fileName 是窗口标题，prompt 是请求里的问题。
     terminal: {
-        fileName: "whisper.json",
-        prompt: "今天想听你说说话。",
+        fileName: "crystal.json",
+        prompt: "嗨，今天过得怎么样？",
     },
 
     // 控制台、注册页和文档链接：路径通常以 / 开头；外部链接必须写完整 https:// 地址。

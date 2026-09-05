@@ -77,7 +77,7 @@ window.WANAPI_CONTENT = {
 | `hero` | 首屏标题、介绍和按钮文字 |
 | `features` | 功能介绍区域 |
 | `workflow` | 请求流程区域 |
-| `terminal` | 秘密通讯机的窗口标题和留言内容 |
+| `terminal` | 接口示例终端的窗口标题和请求内容 |
 | `links` | 控制台、注册页和文档链接 |
 
 ## 项目结构
