@@ -37,6 +37,42 @@ try {
             });
 
             /*
+                背景角色图支持通过 content-config.js 的 background.imageUrl 替换。
+                配置与 HTML 默认值一致时跳过，避免触发无意义的重新加载。
+            */
+            function applyBackgroundImage() {
+                const imageUrl = contentConfig.background?.imageUrl;
+                if (!imageUrl || !animeBackground) {
+                    return;
+                }
+
+                if (animeBackground.getAttribute("src") !== imageUrl) {
+                    animeBackground.src = imageUrl;
+                }
+            }
+
+            /*
+                滚动播报：
+                把配置文案拼接成两份写入轨道，配合 CSS 位移动画实现无缝循环；
+                没有配置文案时隐藏整个播报条。
+            */
+            function renderTicker() {
+                const tickerTrack = document.getElementById("ticker-track");
+                if (!tickerTrack) {
+                    return;
+                }
+
+                const items = contentConfig.ticker?.items;
+                if (!Array.isArray(items) || items.length === 0) {
+                    tickerTrack.closest(".ticker-bar")?.classList.add("is-hidden");
+                    return;
+                }
+
+                const text = items.join("　♡　");
+                tickerTrack.textContent = `${text}　♡　${text}　♡　`;
+            }
+
+            /*
                 从配置对象读取嵌套字段：
                 例如 data-content-key="hero.title" 会读取
                 window.WANAPI_CONTENT.hero.title。
@@ -269,10 +305,12 @@ try {
 
             /*
                 初始化顺序：
-                先写入年份，再同步外层链接，最后启动观察器。
+                先渲染播报条与背景角色，再应用文字配置，
+                最后同步外层链接并启动观察器。
                 品牌名称固定在 index.html 中，不依赖外部页面消息。
             */
-            document.getElementById("current-year").textContent = String(new Date().getFullYear());
+            renderTicker();
+            applyBackgroundImage();
             applyContentConfig();
             syncNewApiLinks();
             observeSections();

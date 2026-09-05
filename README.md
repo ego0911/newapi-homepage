@@ -80,9 +80,7 @@ window.WANAPI_CONTENT = {
 | `workflow` | 请求流程区域 |
 | `terminal` | API 请求示例中的模型和提示词 |
 | `models` | 模型说明、标签和复制按钮 |
-| `cta` | 页面底部行动区域 |
-| `footer` | 页脚仓库名称和版权名称 |
-| `links` | 控制台、注册页、文档和仓库链接 |
+| `links` | 控制台、注册页和文档链接 |
 
 ## 项目结构
 
