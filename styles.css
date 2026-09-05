@@ -440,6 +440,53 @@
             padding-top: 82px;
         }
 
+        html.is-embedded .quick-stats {
+            margin-top: 0;
+        }
+
+        }
+
+        /* 首屏下方的统计条与 Hero 保持轻微重叠，形成连续的内容入口。 */
+        .quick-stats {
+            position: relative;
+            z-index: 2;
+            margin-top: -24px;
+        }
+
+        /* 统计条使用浅玻璃面，不再使用厚重的深色背景。 */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 1px solid var(--glass-line);
+            border-radius: 15px;
+            background: var(--glass);
+            backdrop-filter: blur(18px) saturate(112%);
+            -webkit-backdrop-filter: blur(18px) saturate(112%);
+            box-shadow: var(--shadow-small);
+        }
+
+        .stat-item {
+            min-height: 110px;
+            padding: 22px 24px;
+            border-right: 1px solid rgba(64, 55, 66, 0.1);
+            color: var(--ink);
+        }
+
+        .stat-item:last-child {
+            border-right: 0;
+        }
+
+        .stat-value {
+            color: var(--coral);
+            font-size: 23px;
+            font-weight: 900;
+        }
+
+        .stat-label {
+            margin-top: 5px;
+            color: var(--ink-soft);
+            font-size: 12px;
+            font-weight: 700;
         }
 
         /* 所有普通内容区使用统一的上下留白。 */
@@ -919,6 +966,27 @@
                 align-items: flex-start;
                 flex-direction: column;
                 gap: 5px;
+            }
+
+            .quick-stats {
+                margin-top: 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-item {
+                min-height: 96px;
+                padding: 18px;
+            }
+
+            .stat-item:nth-child(2) {
+                border-right: 0;
+            }
+
+            .stat-item:nth-child(-n + 2) {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             }
 
             .section {

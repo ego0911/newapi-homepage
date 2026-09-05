@@ -58,6 +58,18 @@ window.WANAPI_CONTENT = {
         caption: "今天也是晴天，随时进来坐坐哦",
     },
 
+    // 首屏下方四个小特点。
+    stats: {
+        firstValue: "暖光常亮",
+        firstLabel: "无论深夜几点推门进来，总有一盏灯为你亮着。",
+        secondValue: "心有灵犀",
+        secondLabel: "随手写下的每一句话，都能得到最温柔细腻的懂得。",
+        thirdValue: "百宝随行",
+        thirdLabel: "把所有聪明的智慧打包在掌心，任你差遣。",
+        fourthValue: "绝对偏袒",
+        fourthLabel: "没有别人的喧嚣打扰，这里只属于我们两个人。",
+    },
+
     // 花园常客：四张卡片，每位常客一个故事。
     features: {
         title: "花园常客",
