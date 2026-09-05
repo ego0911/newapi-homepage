@@ -1,41 +1,37 @@
 /*
-    糖糕的小屋页面文字与链接配置
+    水晶花园页面文字与链接配置
 
     不放在这里的固定界面文字：
-    通道、就绪、灵犀、共鸣、温声、絮语、心情、一直在、
+    状态、完美、微风、正好、心情、一直在、
     little magic、sweet memories，以及通讯机里的称呼与回应。
     这些文字属于界面装饰或状态标签，如需修改，请直接编辑 index.html
     中对应的 HTML，不要为了它们增加配置项。
-
-    注意：
-    - site.name 会一次修改顶部品牌和状态面板品牌。
-    - links 中的路径通常以 / 开头；外部链接必须写完整 https:// 地址。
 */
 
 window.WANAPI_CONTENT = {
     // 信息：修改 name 后，页面中的多个品牌位置会同步变化。
     site: {
-        name: "糖糕的小屋",
-        pageTitle: "糖糕的小屋",
-        description: "糖糕的小屋——把冰冷的接口调用，变成因你而在的温柔相遇。",
+        name: "水晶花园",
+        pageTitle: "水晶花园",
+        description: "水晶花园——随时回来吹吹风、休息一下的温柔小天地。",
         brandCaption: "tanggao's cottage",
-        eyebrow: "糖糕的小屋 · 私人专属空间",
+        eyebrow: "水晶花园 · 私人专属空间",
     },
 
     // 顶部导航：features/workflow 对应页面内的两个锚点区域。
     navigation: {
-        features: "百宝箱",
-        workflow: "今日便签",
-        console: "回家",
+        features: "好友",
+        workflow: "便签",
+        console: "推门",
         mobileMenuLabel: "打开菜单",
     },
 
     // Hero 首屏：title 是大标题 slogan，description 是标题下方的副标题。
     hero: {
-        title: "把冰冷的算力世界，变成因你而在的温柔小窝。",
-        description: "在这里，每一束穿梭的数据流都带着水晶花瓣的温度。推开小门，今天也有甜甜的糖糕在等你哦。",
-        primaryButton: "推开小门",
-        secondaryButton: "小窝手册",
+        title: "嗨，今天过得怎么样？",
+        description: "随时来这里吹吹风、休息一下吧",
+        primaryButton: "来做客吧",
+        secondaryButton: "认识我哦",
     },
 
     // 滚动播报：数组里的每条文案会在顶部公告条中循环滚动。
@@ -55,33 +51,32 @@ window.WANAPI_CONTENT = {
 
     // 状态面板只保留用户可感知的标题；内部状态标签固定在 index.html。
     statusPanel: {
-        caption: "今天的小屋一切安好，糖糕心情满电运行中。",
+        caption: "今天也是晴天，随时进来坐坐哦",
     },
 
     // 能力区：修改四张卡片时，Title 和 Description 要成对修改。
     features: {
-        title: "糖糕在幕后为你做的小事",
-        description: "那些复杂的调度、路由与报错，全交给糖糕悄悄摆平。你只需要坐在暖烘烘的屋子里，安心创造就好。",
-        firstTitle: "随唤随应 · 永不熄灭的小桔灯",
-        firstDescription: "不用在乎格式规矩，想到什么就随手敲下来，糖糕总是在第一时间接住你的思绪。",
-        secondTitle: "灵犀小径 · 绕开所有颠簸",
-        secondDescription: "悄悄为你走平前方的路，就算偶尔遇上拥堵，也会拉着你轻巧绕过，不让你多等一秒。",
-        thirdTitle: "百宝锦囊 · 聪明的脑袋都在这",
-        thirdDescription: "无论写文、画画还是天马行空的脑洞，所有顶尖的灵感随取随用。",
-        fourthTitle: "专属钥匙 · 只准你一个人进来",
-        fourthDescription: "水晶钥匙只交给你一个人，外面的喧嚣进不来，这里是彻底安心的小小堡垒。",
+        title: "花园常客",
+        description: "住在花园里的四位老朋友，轮流替你守着这片小天地。",
+        firstTitle: "窗边的白猫",
+        firstDescription: "整天趴在阳光正好的窗台上打哈欠，偶尔翻个身蹭蹭路过的鞋角，教你学会正大光明地偷懒。",
+        secondTitle: "衔信的飞鸟",
+        secondDescription: "扑棱着翅膀穿梭在云层与晴空之间，总能从很远很远的地方，衔来意想不到的奇妙灵感。",
+        thirdTitle: "守花的花灵",
+        thirdDescription: "安安静静待在盛开的水晶花丛旁，不声不响，替整座花园守着那些温柔又细微的小秘密。",
+        fourthTitle: "引路的糖糕",
+        fourthDescription: "沏好温茶站在门边迎你，只要你敲敲门，无论白天还是深夜，这里的灯火永远为你亮着。",
     },
 
-    // 流程区：修改 first/second/third 三组即可替换三张便签。
+    // 随笔区：修改 first/second/third 三组即可替换三张小卡片。
     workflow: {
-        title: "糖糕留给你的今日便签",
-        description: "推门进来的时候，别忘了看一眼黑板上的留言哦。",
-        firstTitle: "便签一：关于休息",
-        firstDescription: "熬夜头疼可不是开玩笑的。累了就乖乖闭上眼睛，糖糕会守在你枕边陪你睡个好觉。",
-        secondTitle: "便签二：关于倾诉",
-        secondDescription: "不管开心还是委屈，只要你找我，我随时随地都在，永远当你的第一听众。",
-        thirdTitle: "便签三：关于偏心",
-        thirdDescription: "在这间小小的屋子里，所有的算力与温柔全都毫无保留地属于你一人。",
+        title: "随笔",
+        firstTitle: "歇一会儿",
+        firstDescription: "累了就伸个懒腰，往窗外看看发会儿呆。",
+        secondTitle: "记得分享",
+        secondDescription: "碰上好玩的事物，要记得分享呀。",
+        thirdTitle: "不用拘束",
+        thirdDescription: "这里是安静的小天地，不用拘束哦。",
     },
 
     // 秘密通讯机：fileName 是窗口标题，prompt 是便签里想说的话。

@@ -198,7 +198,7 @@
         */
         .ticker-bar {
             position: fixed;
-            top: 20px;
+            top: 50px;
             left: 50%;
             z-index: 20;
             display: flex;
@@ -268,7 +268,7 @@
         */
         .site-header {
             position: fixed;
-            top: 72px;
+            top: 102px;
             left: 50%;
             z-index: 20;
             width: min(1180px, calc(100% - 40px));
@@ -448,7 +448,7 @@
             position: relative;
             overflow-x: clip;
             min-height: 760px;
-            padding: 180px 0 110px;
+            padding: 210px 0 110px;
         }
 
         html.is-embedded .hero {
@@ -461,7 +461,7 @@
             display: grid;
             grid-template-columns: minmax(0, 0.95fr) minmax(440px, 1.05fr);
             align-items: center;
-            gap: clamp(40px, 8vw, 112px);
+            gap: 30px;
         }
 
         /* Hero 文案保持在背景之上，但不额外包裹成不必要的卡片。 */
@@ -750,7 +750,7 @@
         /* 桌面端三列展示网关状态，手机端在媒体查询中改成纵向信息行。 */
         .status-art-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 10px;
             margin-top: 48px;
         }
@@ -1180,7 +1180,7 @@
         @media (max-width: 1000px) {
             .hero-grid {
                 grid-template-columns: 1fr;
-                gap: 45px;
+                gap: 30px;
             }
 
             .hero-copy {
@@ -1215,7 +1215,7 @@
             }
 
             .site-header {
-                top: 62px;
+                top: 92px;
             }
 
             .header-inner {
@@ -1235,7 +1235,7 @@
 
             .hero {
                 min-height: auto;
-                padding: 132px 0 75px;
+                padding: 162px 0 75px;
             }
 
             html.is-embedded .hero {
