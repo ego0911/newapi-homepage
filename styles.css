@@ -218,20 +218,13 @@
             display: none;
         }
 
-        .ticker-logo {
-            flex: 0 0 auto;
-            width: 26px;
-            height: 26px;
-            border: 1px solid var(--ink);
-            border-radius: 9px;
-            overflow: hidden;
-            box-shadow: 2px 2px 0 var(--ink);
-        }
-
-        .ticker-logo img {
+        /* 引路的糖糕卡片：头像图标填满图标容器。 */
+        .feature-icon img {
+            display: block;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 12px;
         }
 
         /* 播报视口两端淡出，文案滚动到边缘时自然消失。 */
