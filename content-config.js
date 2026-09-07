@@ -94,7 +94,7 @@ window.WANAPI_CONTENT = {
     links: {
         consolePath: "/",
         registerPath: "/register",
-        documentationUrl: "https://docs.newapi.pro/zh/docs",
+        documentationUrl: "https://ui.0931116.xyz/memo.html",
     },
 
 };
